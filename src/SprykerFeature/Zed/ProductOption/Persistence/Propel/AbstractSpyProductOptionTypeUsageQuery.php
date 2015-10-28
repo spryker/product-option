@@ -5,7 +5,7 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionTypeUsageQuery as BaseSpyProductOptionTypeUsageQuery;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionTypeUsageQuery as BaseSpyProductOptionTypeUsageQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_option_type_usage' table.
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionTyp
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionTypeUsageQuery extends BaseSpyProductOptionTypeUsageQuery
+abstract class AbstractSpyProductOptionTypeUsageQuery extends BaseSpyProductOptionTypeUsageQuery
 {
 
 } // SpyProductOptionTypeUsageQuery

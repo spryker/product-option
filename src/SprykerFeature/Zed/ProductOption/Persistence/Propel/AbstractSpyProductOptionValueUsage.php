@@ -5,10 +5,10 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionTypeUsageExclusion as BaseSpyProductOptionTypeUsageExclusion;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionValueUsage as BaseSpyProductOptionValueUsage;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_product_option_type_usage_exclusion' table.
+ * Skeleton subclass for representing a row from the 'spy_product_option_value_usage' table.
  *
  *
  *
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionTyp
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionTypeUsageExclusion extends BaseSpyProductOptionTypeUsageExclusion
+abstract class AbstractSpyProductOptionValueUsage extends BaseSpyProductOptionValueUsage
 {
 
 }

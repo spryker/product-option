@@ -5,7 +5,7 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionConfigurationPresetValue as BaseSpyProductOptionConfigurationPresetValue;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionConfigurationPresetValue as BaseSpyProductOptionConfigurationPresetValue;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_option_configuration_preset_value' table.
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionCon
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionConfigurationPresetValue extends BaseSpyProductOptionConfigurationPresetValue
+abstract class AbstractSpyProductOptionConfigurationPresetValue extends BaseSpyProductOptionConfigurationPresetValue
 {
 
 }

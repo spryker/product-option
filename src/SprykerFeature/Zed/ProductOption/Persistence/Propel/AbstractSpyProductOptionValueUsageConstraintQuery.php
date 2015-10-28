@@ -5,7 +5,7 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionValueUsageConstraintQuery as BaseSpyProductOptionValueUsageConstraintQuery;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionValueUsageConstraintQuery as BaseSpyProductOptionValueUsageConstraintQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_option_value_usage_constraint' table.
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionVal
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionValueUsageConstraintQuery extends BaseSpyProductOptionValueUsageConstraintQuery
+abstract class AbstractSpyProductOptionValueUsageConstraintQuery extends BaseSpyProductOptionValueUsageConstraintQuery
 {
 
 } // SpyProductOptionValueUsageConstraintQuery

@@ -5,10 +5,10 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionValueQuery as BaseSpyProductOptionValueQuery;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionTypeUsageExclusion as BaseSpyProductOptionTypeUsageExclusion;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'spy_product_option_value' table.
+ * Skeleton subclass for representing a row from the 'spy_product_option_type_usage_exclusion' table.
  *
  *
  *
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionVal
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionValueQuery extends BaseSpyProductOptionValueQuery
+abstract class AbstractSpyProductOptionTypeUsageExclusion extends BaseSpyProductOptionTypeUsageExclusion
 {
 
-} // SpyProductOptionValueQuery
+}

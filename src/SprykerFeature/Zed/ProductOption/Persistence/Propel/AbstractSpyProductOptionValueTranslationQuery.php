@@ -5,7 +5,7 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionValueTranslationQuery as BaseSpyProductOptionValueTranslationQuery;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionValueTranslationQuery as BaseSpyProductOptionValueTranslationQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_option_value_translation' table.
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionVal
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionValueTranslationQuery extends BaseSpyProductOptionValueTranslationQuery
+abstract class AbstractSpyProductOptionValueTranslationQuery extends BaseSpyProductOptionValueTranslationQuery
 {
 
 } // SpyProductOptionValueTranslationQuery

@@ -5,7 +5,7 @@
 
 namespace SprykerFeature\Zed\ProductOption\Persistence\Propel;
 
-use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionConfigurationPresetQuery as BaseSpyProductOptionConfigurationPresetQuery;
+use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionConfigurationPresetQuery as BaseSpyProductOptionConfigurationPresetQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_option_configuration_preset' table.
@@ -17,7 +17,7 @@ use SprykerFeature\Zed\ProductOption\Persistence\Propel\Base\SpyProductOptionCon
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductOptionConfigurationPresetQuery extends BaseSpyProductOptionConfigurationPresetQuery
+abstract class AbstractSpyProductOptionConfigurationPresetQuery extends BaseSpyProductOptionConfigurationPresetQuery
 {
 
 } // SpyProductOptionConfigurationPresetQuery
