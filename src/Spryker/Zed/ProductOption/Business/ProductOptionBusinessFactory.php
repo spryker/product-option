@@ -17,7 +17,7 @@ use Spryker\Zed\ProductOption\Business\Model\ProductOptionReaderInterface;
 /**
  * @method ProductOptionConfig getConfig()
  */
-class ProductOptionDependencyContainer extends AbstractBusinessFactory
+class ProductOptionBusinessFactory extends AbstractBusinessFactory
 {
 
     /**

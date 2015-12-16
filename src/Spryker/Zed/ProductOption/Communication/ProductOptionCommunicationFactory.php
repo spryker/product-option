@@ -10,7 +10,7 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 use Spryker\Zed\ProductOption\Business\ProductOptionFacade;
 use Spryker\Zed\ProductOption\ProductOptionDependencyProvider;
 
-class ProductOptionDependencyContainer extends AbstractCommunicationFactory
+class ProductOptionCommunicationFactory extends AbstractCommunicationFactory
 {
 
     /**
