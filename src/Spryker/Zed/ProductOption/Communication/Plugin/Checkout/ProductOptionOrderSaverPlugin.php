@@ -5,17 +5,15 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductOption\Communication\Plugin;
+namespace Spryker\Zed\ProductOption\Communication\Plugin\Checkout;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Zed\Checkout\Dependency\Plugin\CheckoutSaveOrderInterface;
+use Generated\Shared\Transfer\SaveOrderTransfer;
+use Spryker\Zed\Checkout\Dependency\Plugin\PlaceOrder\CheckoutSaveOrderInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
- * @deprecated Use \Spryker\Zed\ProductOption\Communication\Plugin\Checkout\ProductOptionOrderSaverPlugin instead
- * Will be removed with the next major.
- *
  * @method \Spryker\Zed\ProductOption\Business\ProductOptionFacade getFacade()
  * @method \Spryker\Zed\ProductOption\Communication\ProductOptionCommunicationFactory getFactory()
  */
@@ -23,12 +21,12 @@ class ProductOptionOrderSaverPlugin extends AbstractPlugin implements CheckoutSa
 {
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponse
+     * @param SaveOrderTransfer $saveOrderTransfer
      *
      * @return void
      */
-    public function saveOrder(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponse)
+    public function saveOrder(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer)
     {
-        $this->getFacade()->saveSaleOrderProductOptions($quoteTransfer, $checkoutResponse);
+        $this->getFacade()->saveOrderProductOptions($quoteTransfer, $saveOrderTransfer);
     }
 }

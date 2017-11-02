@@ -4,22 +4,19 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductOption\Business\OptionGroup;
+namespace Spryker\Zed\ProductOption\Business\PlaceOrder;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\SaveOrderTransfer;
 
-/**
- * @deprecated Use \Spryker\Zed\ProductOption\Business\PlaceOrder\ProductOptionOrderSaverInterface instead
- * Will be removed with the next major release
- */
 interface ProductOptionOrderSaverInterface
 {
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponse
+     * @param SaveOrderTransfer $saveOrderTransfer
      *
      * @return void
      */
-    public function save(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponse);
+    public function saveOrder(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer);
 }
