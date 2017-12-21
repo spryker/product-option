@@ -8,7 +8,7 @@ namespace Spryker\Zed\ProductOption\Dependency\Facade;
 
 use Generated\Shared\Transfer\MoneyTransfer;
 
-class ProductOptionToMoneyBridge implements ProductOptionToMoneyInterface
+class ProductOptionToMoneyFacadeBridge implements ProductOptionToMoneyFacadeInterface
 {
     /**
      * @var \Spryker\Zed\Money\Business\MoneyFacadeInterface
@@ -21,16 +21,6 @@ class ProductOptionToMoneyBridge implements ProductOptionToMoneyInterface
     public function __construct($moneyFacade)
     {
         $this->moneyFacade = $moneyFacade;
-    }
-
-    /**
-     * @param int $value
-     *
-     * @return float
-     */
-    public function convertIntegerToDecimal($value)
-    {
-        return $this->moneyFacade->convertIntegerToDecimal($value);
     }
 
     /**

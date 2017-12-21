@@ -6,16 +6,15 @@
 
 namespace Spryker\Zed\ProductOption\Dependency\Facade;
 
-interface ProductOptionToTouchInterface
+interface ProductOptionToPriceFacadeInterface
 {
     /**
-     * @api
-     *
-     * @param string $itemType
-     * @param int $idItem
-     * @param bool $keyChange
-     *
-     * @return bool
+     * @return string
      */
-    public function touchActive($itemType, $idItem, $keyChange = false);
+    public function getGrossPriceModeIdentifier();
+
+    /**
+     * @return string
+     */
+    public function getNetPriceModeIdentifier();
 }

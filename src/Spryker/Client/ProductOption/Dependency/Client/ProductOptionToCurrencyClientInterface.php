@@ -5,12 +5,10 @@
  */
 namespace Spryker\Client\ProductOption\Dependency\Client;
 
-interface ProductOptionToStorageInterface
+interface ProductOptionToCurrencyClientInterface
 {
     /**
-     * @param string $key
-     *
-     * @return array
+     * @return \Generated\Shared\Transfer\CurrencyTransfer
      */
-    public function get($key);
+    public function getCurrent();
 }

@@ -7,14 +7,14 @@
 
 namespace Spryker\Zed\ProductOption\Dependency\Service;
 
-interface ProductOptionToUtilEncodingInterface
+interface ProductOptionToUtilEncodingServiceInterface
 {
     /**
      * @param mixed $value
      * @param int|null $options
      * @param int|null $depth
      *
-     * @return string
+     * @return string|null
      */
     public function encodeJson($value, $options = null, $depth = null);
 }

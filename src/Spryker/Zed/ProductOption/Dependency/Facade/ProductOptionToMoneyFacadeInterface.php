@@ -7,15 +7,8 @@ namespace Spryker\Zed\ProductOption\Dependency\Facade;
 
 use Generated\Shared\Transfer\MoneyTransfer;
 
-interface ProductOptionToMoneyInterface
+interface ProductOptionToMoneyFacadeInterface
 {
-    /**
-     * @param int $value
-     *
-     * @return float
-     */
-    public function convertIntegerToDecimal($value);
-
     /**
      * @param float $value
      *
