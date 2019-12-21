@@ -73,14 +73,15 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
 
     /**
      * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue $productOptionValueEntity
+     * @param string|null $currencyCode
      *
      * @return int|null
      */
-    public function getCurrentGrossPrice(SpyProductOptionValue $productOptionValueEntity)
+    public function getCurrentGrossPrice(SpyProductOptionValue $productOptionValueEntity, ?string $currencyCode = null)
     {
         $priceMap = $this->getCurrencyFilteredPriceMap(
             $productOptionValueEntity->getProductOptionValuePrices(),
-            $this->getCurrentIdCurrency()
+            $this->getCurrentIdCurrency($currencyCode)
         );
 
         $currentIdStore = $this->storeFacade->getCurrentStore()->getIdStore();
@@ -97,14 +98,15 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
 
     /**
      * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue $productOptionValueEntity
+     * @param string|null $currencyCode
      *
      * @return int|null
      */
-    public function getCurrentNetPrice(SpyProductOptionValue $productOptionValueEntity)
+    public function getCurrentNetPrice(SpyProductOptionValue $productOptionValueEntity, ?string $currencyCode = null)
     {
         $priceMap = $this->getCurrencyFilteredPriceMap(
             $productOptionValueEntity->getProductOptionValuePrices(),
-            $this->getCurrentIdCurrency()
+            $this->getCurrentIdCurrency($currencyCode)
         );
 
         $currentIdStore = $this->storeFacade->getCurrentStore()->getIdStore();
@@ -140,13 +142,13 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
     }
 
     /**
+     * @param string|null $currencyCode
+     *
      * @return int
      */
-    protected function getCurrentIdCurrency()
+    protected function getCurrentIdCurrency(?string $currencyCode = null)
     {
-        $currency = $this->currencyFacade->getCurrent();
-
-        return $this->currencyFacade->fromIsoCode($currency->getCode())->getIdCurrency();
+        return $this->currencyFacade->fromIsoCode($currencyCode ?? $this->currencyFacade->getCurrent()->getCode())->getIdCurrency();
     }
 
     /**
