@@ -41,6 +41,7 @@ class ProductOptionValuePriceSaver implements ProductOptionValuePriceSaverInterf
                 $this->createPriceEntity($moneyValueTransfer, $productOptionValueTransfer->getIdProductOptionValue());
                 continue;
             }
+
             $this->updatePriceEntity($priceEntity, $moneyValueTransfer);
         }
     }

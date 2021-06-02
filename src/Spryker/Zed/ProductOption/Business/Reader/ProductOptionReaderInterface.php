@@ -5,25 +5,19 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductOption\Persistence;
+namespace Spryker\Zed\ProductOption\Business\Reader;
 
+use Generated\Shared\Transfer\ProductOptionCollectionTransfer;
 use Generated\Shared\Transfer\ProductOptionCriteriaTransfer;
 
-interface ProductOptionRepositoryInterface
+interface ProductOptionReaderInterface
 {
-    /**
-     * @param int[] $productAbstractIds
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionGroupStatusTransfer[]
-     */
-    public function getProductAbstractOptionGroupStatusesByProductAbstractIds(array $productAbstractIds): array;
-
     /**
      * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
      *
-     * @return \Generated\Shared\Transfer\ProductOptionValueTransfer[]
+     * @return \Generated\Shared\Transfer\ProductOptionCollectionTransfer
      */
     public function get(
         ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
-    ): array;
+    ): ProductOptionCollectionTransfer;
 }

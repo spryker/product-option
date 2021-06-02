@@ -8,8 +8,10 @@
 namespace Spryker\Zed\ProductOption\Persistence;
 
 use Generated\Shared\Transfer\ProductAbstractOptionGroupStatusTransfer;
+use Generated\Shared\Transfer\ProductOptionCriteriaTransfer;
 use Orm\Zed\ProductOption\Persistence\Map\SpyProductAbstractProductOptionGroupTableMap;
 use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionGroupTableMap;
+use Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
@@ -42,5 +44,91 @@ class ProductOptionRepository extends AbstractRepository implements ProductOptio
         return $this->getFactory()
             ->createProductOptionMapper()
             ->mapProductAbstractOptionGroupStatusesToTransfers($productAbstractOptionGroupStatuses);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductOptionValueTransfer[]
+     */
+    public function get(
+        ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
+    ): array {
+        $productOptionValueQuery = $this->getFactory()
+            ->createProductOptionValueQuery()
+            ->innerJoinWithSpyProductOptionGroup()
+            ->innerJoinWithProductOptionValuePrice();
+
+        $productOptionValueQuery = $this->applyProductOptionCriteriaFilter(
+            $productOptionCriteriaTransfer,
+            $productOptionValueQuery
+        );
+
+        $productOptionValueEntities = $productOptionValueQuery->find();
+
+        return $this->getFactory()
+            ->createProductOptionMapper()
+            ->mapProductOptionValueEntityCollectionToProductOptionValueTransfers(
+                $productOptionValueEntities
+            );
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
+     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery $productOptionValueQuery
+     *
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
+     */
+    protected function applyProductOptionCriteriaFilter(
+        ProductOptionCriteriaTransfer $productOptionCriteriaTransfer,
+        SpyProductOptionValueQuery $productOptionValueQuery
+    ): SpyProductOptionValueQuery {
+        if ($productOptionCriteriaTransfer->getProductOptionGroupIsActive() !== null) {
+            $productOptionValueQuery
+                ->useSpyProductOptionGroupQuery()
+                ->filterByActive($productOptionCriteriaTransfer->getProductOptionGroupIsActive())
+                ->endUse();
+        }
+
+        if ($productOptionCriteriaTransfer->getProductConcreteSku()) {
+            $productOptionValueQuery
+                ->useSpyProductOptionGroupQuery()
+                ->useSpyProductAbstractProductOptionGroupQuery(null, Criteria::LEFT_JOIN)
+                ->useSpyProductAbstractQuery()
+                ->useSpyProductQuery()
+                ->filterBySku($productOptionCriteriaTransfer->getProductConcreteSku())
+                ->endUse()
+                ->endUse()
+                ->endUse()
+                ->endUse();
+        }
+
+        if ($productOptionCriteriaTransfer->getProductOptionIds()) {
+            $productOptionValueQuery
+                ->filterByIdProductOptionValue_In($productOptionCriteriaTransfer->getProductOptionIds());
+        }
+
+        if ($productOptionCriteriaTransfer->getProductOptionSkus()) {
+            $productOptionValueQuery
+                ->filterBySku_In($productOptionCriteriaTransfer->getProductOptionSkus());
+        }
+
+        if ($productOptionCriteriaTransfer->getStoreIds()) {
+            $productOptionValueQuery
+                ->useProductOptionValuePriceQuery()
+                ->filterByFkStore_In($productOptionCriteriaTransfer->getStoreIds())
+                ->endUse();
+        }
+
+        if ($productOptionCriteriaTransfer->getCurrencyIsoCode()) {
+            $productOptionValueQuery
+                ->useProductOptionValuePriceQuery()
+                ->useCurrencyQuery()
+                ->filterByCode($productOptionCriteriaTransfer->getCurrencyIsoCode())
+                ->endUse()
+                ->endUse();
+        }
+
+        return $productOptionValueQuery;
     }
 }
