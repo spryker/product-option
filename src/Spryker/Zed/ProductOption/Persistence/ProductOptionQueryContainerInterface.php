@@ -14,6 +14,9 @@ use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroupQuery;
 interface ProductOptionQueryContainerInterface
 {
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param string $sku
@@ -25,6 +28,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductAbstractBySku($sku);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionGroupQuery
@@ -32,6 +38,9 @@ interface ProductOptionQueryContainerInterface
     public function queryAllProductOptionGroups();
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @return \Orm\Zed\ProductOption\Persistence\SpyProductAbstractProductOptionGroupQuery
@@ -39,6 +48,9 @@ interface ProductOptionQueryContainerInterface
     public function queryAllProductAbstractProductOptionGroups();
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
@@ -46,6 +58,9 @@ interface ProductOptionQueryContainerInterface
     public function queryAllProductOptionValues();
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionValue
@@ -55,6 +70,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionByValueId($idProductOptionValue);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
@@ -64,6 +82,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionByProductOptionCriteria(ProductOptionCriteriaTransfer $productOptionCriteriaTransfer);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param string $sku
@@ -73,6 +94,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionValueBySku($sku);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param string $groupName
@@ -82,6 +106,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionGroupByName($groupName);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int[] $allIdOptionValueUsages
@@ -92,6 +119,9 @@ interface ProductOptionQueryContainerInterface
     public function queryTaxSetByIdProductOptionValueAndCountryIso2Code($allIdOptionValueUsages, $countryIso2Code);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionGroup
@@ -101,6 +131,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionGroupById($idProductOptionGroup);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionGroup
@@ -110,6 +143,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionGroupWithProductOptionValuesAndProductOptionValuePricesById($idProductOptionGroup);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionGroup
@@ -119,6 +155,9 @@ interface ProductOptionQueryContainerInterface
     public function queryActiveProductOptionGroupWithProductOptionValuesAndProductOptionValuePricesById($idProductOptionGroup);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionValue
@@ -128,6 +167,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionValuePricesByIdProductOptionValue($idProductOptionValue);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionGroup
@@ -138,6 +180,9 @@ interface ProductOptionQueryContainerInterface
     public function queryAbstractProductsByOptionGroupId($idProductOptionGroup, LocaleTransfer $localeTransfer);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param string $term
@@ -149,6 +194,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductsAbstractBySearchTermForAssignment($term, $idProductOptionGroup, LocaleTransfer $localeTransfer);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param string $value
@@ -158,6 +206,9 @@ interface ProductOptionQueryContainerInterface
     public function queryProductOptionValue($value);
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
@@ -165,6 +216,9 @@ interface ProductOptionQueryContainerInterface
     public function querySalesOrder();
 
     /**
+     * Specification:
+     * - TODO: Add method specification.
+     *
      * @api
      *
      * @param int $idProductOptionValue

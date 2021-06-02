@@ -23,6 +23,8 @@ use Spryker\Zed\ProductOption\Business\OptionGroup\ProductOptionValueReader;
 use Spryker\Zed\ProductOption\Business\OptionGroup\ProductOptionValueSaver;
 use Spryker\Zed\ProductOption\Business\OptionGroup\TranslationSaver;
 use Spryker\Zed\ProductOption\Business\PlaceOrder\ProductOptionOrderSaver;
+use Spryker\Zed\ProductOption\Business\Reader\ProductOptionReader;
+use Spryker\Zed\ProductOption\Business\Reader\ProductOptionReaderInterface;
 use Spryker\Zed\ProductOption\ProductOptionDependencyProvider;
 
 /**
@@ -42,6 +44,19 @@ class ProductOptionBusinessFactory extends AbstractBusinessFactory
             $this->getQueryContainer(),
             $this->getGlossaryFacade(),
             $this->getLocaleFacade()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductOption\Business\Reader\ProductOptionReaderInterface
+     */
+    public function createProductOptionReader(): ProductOptionReaderInterface
+    {
+        return new ProductOptionReader(
+            $this->getRepository(),
+            $this->getCurrencyFacade(),
+            $this->getStoreFacade(),
+            $this->getPriceFacade()
         );
     }
 

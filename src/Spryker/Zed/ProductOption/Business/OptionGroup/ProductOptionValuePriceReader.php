@@ -136,6 +136,7 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
         if ($priceMode === $this->getGrossPriceModeIdentifier()) {
             return $productOptionTransfer->getUnitGrossPrice();
         }
+
         return $productOptionTransfer->getUnitNetPrice();
     }
 

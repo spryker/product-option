@@ -19,6 +19,7 @@ use SprykerTest\Zed\ProductOption\Business\MockProvider;
 
 /**
  * Auto-generated group annotations
+ *
  * @group SprykerTest
  * @group Zed
  * @group ProductOption
@@ -80,7 +81,7 @@ class ProductOptionOrderSaverTest extends MockProvider
      *
      * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductOption\Business\OptionGroup\ProductOptionOrderSaver
      */
-    protected function createProductOptionOrderSaver(?ProductOptionToGlossaryFacadeInterface $glossaryFacadeMock = null)
+    protected function createProductOptionOrderSaver(?ProductOptionToGlossaryFacadeInterface $glossaryFacadeMock = null): ProductOptionOrderSaver
     {
         if (!$glossaryFacadeMock) {
             $glossaryFacadeMock = $this->createGlossaryFacadeMock();
@@ -95,7 +96,7 @@ class ProductOptionOrderSaverTest extends MockProvider
     /**
      * @return \PHPUnit\Framework\MockObject\MockObject|\Orm\Zed\Sales\Persistence\SpySalesOrderItemOption
      */
-    protected function createSalesOrderItemOptionMock()
+    protected function createSalesOrderItemOptionMock(): SpySalesOrderItemOption
     {
         return $this->getMockBuilder(SpySalesOrderItemOption::class)
             ->setMethods(['save'])

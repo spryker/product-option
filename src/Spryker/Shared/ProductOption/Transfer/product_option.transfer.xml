@@ -25,11 +25,13 @@
     </transfer>
 
     <transfer name="ProductOptionCriteria">
-        <property name="ProductOptionIds" type="array" />
-        <property name="productOptionGroupIsActive" type="bool" />
-        <property name="productConcreteSku" type="string" />
+        <property name="productOptionIds" type="array" singular="productOptionIds"/>
+        <property name="productOptionSkus" type="string[]" singular="productOptionSku"/>
+        <property name="productOptionGroupIsActive" type="bool"/>
+        <property name="productConcreteSku" type="string"/>
         <property name="priceMode" type="string"/>
         <property name="currencyIsoCode" type="string"/>
+        <property name="storeIds" type="array" singular="storeId"/>
     </transfer>
 
     <transfer name="Item">
@@ -84,6 +86,7 @@
         <property name="prices" type="MoneyValue[]" singular="price" />
         <property name="sku" type="string" />
         <property name="fkProductOptionGroup" type="int" />
+        <property name="productOptionGroup" type="ProductOptionGroup"/>
         <property name="value" type="string" />
         <property name="optionHash" type="string" />
     </transfer>
