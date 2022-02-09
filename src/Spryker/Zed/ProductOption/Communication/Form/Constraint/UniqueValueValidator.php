@@ -23,38 +23,38 @@ class UniqueValueValidator extends ConstraintValidator
     /**
      * Checks if the passed value is valid.
      *
-     * @param \Generated\Shared\Transfer\ProductOptionValueTransfer|mixed $value The value that should be validated
+     * @param \Generated\Shared\Transfer\ProductOptionValueTransfer|mixed $productOptionValueTransfer The value that should be validated
      * @param \Symfony\Component\Validator\Constraint $constraint The constraint for the validation
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
      *
      * @return void
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($productOptionValueTransfer, Constraint $constraint)
     {
-        if (in_array($value->getValue(), $this->validatedValues)) {
+        if (in_array($productOptionValueTransfer->getValue(), $this->validatedValues)) {
             $this->addUniqueViolationMessage();
         }
 
-        $optionValue = $value->getValue();
+        $value = $productOptionValueTransfer->getValue();
 
         if (!$constraint instanceof UniqueValue) {
             throw new UnexpectedTypeException($constraint, __NAMESPACE__ . '\UniqueValue');
         }
 
-        if (!$this->hasTranslationPrefix($optionValue)) {
-            $optionValue = $this->addTranslationPrefix($optionValue);
+        if (!$this->hasTranslationPrefix($value)) {
+            $value = $this->addTranslationPrefix($value);
         }
 
-        if (!$this->isValueChanged($optionValue, $constraint, $value->getIdProductOptionValue())) {
+        if (!$this->isValueChanged($value, $constraint, $productOptionValueTransfer->getIdProductOptionValue())) {
             return;
         }
 
-        if (!$this->isUniqueValue($optionValue, $constraint)) {
+        if (!$this->isUniqueValue($value, $constraint)) {
             $this->addUniqueViolationMessage();
         }
 
-        $this->validatedValues[] = $value->getValue();
+        $this->validatedValues[] = $productOptionValueTransfer->getValue();
     }
 
     /**
