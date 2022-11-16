@@ -13,4 +13,9 @@ class ProductOptionListPage
      * @var string
      */
     public const URL = '/product-option/list';
+
+    /**
+     * @var string
+     */
+    public const URL_TABLE = '/product-option/list/list-table';
 }
