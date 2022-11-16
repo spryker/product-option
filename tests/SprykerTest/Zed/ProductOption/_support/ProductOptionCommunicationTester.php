@@ -9,6 +9,9 @@ namespace SprykerTest\Zed\ProductOption;
 
 use Codeception\Actor;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionValue;
+use Spryker\Zed\Money\Communication\Plugin\Form\MoneyCollectionFormTypePlugin as MoneyCollectionFormTypePluginWithoutLocale;
+use Spryker\Zed\MoneyGui\Communication\Plugin\Form\MoneyCollectionFormTypePlugin;
+use Spryker\Zed\ProductOption\ProductOptionDependencyProvider;
 
 /**
  * @method void wantToTest($text)
@@ -42,5 +45,25 @@ class ProductOptionCommunicationTester extends Actor
         $productOptionValue->setFkProductOptionGroup($idProductOptionGroup);
 
         $productOptionValue->save();
+    }
+
+    /**
+     * @return void
+     */
+    public function registerMoneyCollectionFormTypePlugin(): void
+    {
+        $this->setDependency(ProductOptionDependencyProvider::MONEY_COLLECTION_FORM_TYPE_PLUGIN, function () {
+            return new MoneyCollectionFormTypePlugin();
+        });
+    }
+
+    /**
+     * @return void
+     */
+    public function registerMoneyCollectionFormTypePluginWithoutLocale(): void
+    {
+        $this->setDependency(ProductOptionDependencyProvider::MONEY_COLLECTION_FORM_TYPE_PLUGIN, function () {
+            return new MoneyCollectionFormTypePluginWithoutLocale();
+        });
     }
 }
