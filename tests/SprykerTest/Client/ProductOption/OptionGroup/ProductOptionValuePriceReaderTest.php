@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\ProductOption\Business\OptionGroup;
+namespace SprykerTest\Client\ProductOption\OptionGroup;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\CurrencyTransfer;
@@ -20,9 +20,8 @@ use Spryker\Shared\ProductOption\ProductOptionConstants;
  * Auto-generated group annotations
  *
  * @group SprykerTest
- * @group Zed
+ * @group Client
  * @group ProductOption
- * @group Business
  * @group OptionGroup
  * @group ProductOptionValuePriceReaderTest
  * Add your own group annotations below this line
