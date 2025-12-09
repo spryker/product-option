@@ -357,7 +357,7 @@ class ProductOptionListTable extends AbstractTable
     protected function getStatus(SpyProductOptionGroup $productOptionGroupEntity)
     {
         if ($productOptionGroupEntity->getActive()) {
-            return $this->generateLabel('Active', 'label-info');
+            return $this->generateLabel('Active', 'label-primary');
         }
 
         return $this->generateLabel('Inactive', 'label-danger');
