@@ -140,7 +140,7 @@ class ProductOptionPresentationTester extends Actor
      */
     public function selectProductTab(): void
     {
-        $this->waitAndClick('//*[@id="page-wrapper"]/div[3]/div[2]/ul/li[2]/a');
+        $this->waitAndClick('//*[@data-qa="tab-products"]');
     }
 
     /**
