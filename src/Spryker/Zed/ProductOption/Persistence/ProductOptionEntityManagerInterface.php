@@ -10,7 +10,7 @@ namespace Spryker\Zed\ProductOption\Persistence;
 interface ProductOptionEntityManagerInterface
 {
     /**
-     * @param list<int> $salesOrderItemIds
+     * @param array<int> $salesOrderItemIds
      *
      * @return void
      */

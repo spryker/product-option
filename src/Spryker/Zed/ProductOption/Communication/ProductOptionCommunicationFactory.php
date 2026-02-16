@@ -184,6 +184,7 @@ class ProductOptionCommunicationFactory extends AbstractCommunicationFactory
      */
     public function createPriceTranformer()
     {
+        // @phpstan-ignore return.type (deprecated method, generic type variance)
         return $this->createPriceTransformer();
     }
 

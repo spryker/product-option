@@ -46,7 +46,7 @@ class SalesOrderItemOptionReplacer implements SalesOrderItemOptionReplacerInterf
     }
 
     /**
-     * @param list<int> $salesOrderItemIds
+     * @param array<int> $salesOrderItemIds
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return void
@@ -62,7 +62,7 @@ class SalesOrderItemOptionReplacer implements SalesOrderItemOptionReplacerInterf
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return list<int>
+     * @return array<int>
      */
     protected function extractSalesOrderItemIds(QuoteTransfer $quoteTransfer): array
     {
