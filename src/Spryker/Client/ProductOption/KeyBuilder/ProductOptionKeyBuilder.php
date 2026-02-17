@@ -15,7 +15,7 @@ class ProductOptionKeyBuilder implements KeyBuilderInterface
     use KeyBuilderTrait;
 
     /**
-     * @param int|string $data
+     * @param string|int $data
      *
      * @return string
      */
