@@ -179,10 +179,6 @@ class ProductOptionGroupSaverTest extends MockProvider
                 $productOptionValueSaverMock,
                 [],
             ])
-            ->addMethods([
-                'getProductAbstractBySku',
-                'getProductOptionValueById',
-            ])
             ->onlyMethods([
                 'getOptionGroupById',
                 'createProductOptionGroupEntity',
