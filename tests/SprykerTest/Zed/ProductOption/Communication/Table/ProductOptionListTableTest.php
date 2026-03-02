@@ -57,9 +57,6 @@ class ProductOptionListTableTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -67,9 +64,6 @@ class ProductOptionListTableTest extends Unit
         $this->tester->addDependencies();
     }
 
-    /**
-     * @return void
-     */
     public function testFetchDataShouldReturnProductOptionGroupsGroupedByProductOptionGroupId(): void
     {
         // Arrange
@@ -97,9 +91,6 @@ class ProductOptionListTableTest extends Unit
         $this->assertSame($expectedCount, count($filteredProductOptionGroupIds));
     }
 
-    /**
-     * @return \SprykerTest\Zed\ProductOption\Communication\Table\ProductOptionListTableMock
-     */
     protected function getProductOptionListTableMock(): ProductOptionListTableMock
     {
         $productOptionQueryContainer = new ProductOptionQueryContainer();

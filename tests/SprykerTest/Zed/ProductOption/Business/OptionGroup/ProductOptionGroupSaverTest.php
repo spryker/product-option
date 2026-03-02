@@ -44,9 +44,6 @@ class ProductOptionGroupSaverTest extends MockProvider
      */
     protected const VALUE_IS_ACTIVE = 1;
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionGroupShouldSaveGroup(): void
     {
         $translationSaverMock = $this->createTranslationSaverMock();
@@ -96,9 +93,6 @@ class ProductOptionGroupSaverTest extends MockProvider
         $this->assertSame($idOfPersistedGroup, 1);
     }
 
-    /**
-     * @return void
-     */
     public function testToggleActiveShouldPersistCorrectActiveFlag(): void
     {
         $productOptionGroupSaverMock = $this->createProductOptionGroupSaver();
@@ -117,9 +111,6 @@ class ProductOptionGroupSaverTest extends MockProvider
         $this->assertTrue($isActivated);
     }
 
-    /**
-     * @return void
-     */
     public function testToggleActiveShouldThrowExceptionWhenGroupNotFound(): void
     {
         $this->expectException(ProductOptionGroupNotFoundException::class);

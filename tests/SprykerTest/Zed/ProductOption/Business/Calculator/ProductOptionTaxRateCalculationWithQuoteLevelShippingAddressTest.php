@@ -55,9 +55,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -164,9 +161,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
         return $bridgeMock;
     }
 
-    /**
-     * @return array
-     */
     public function productOptionTaxRateCalculatorShouldUseQuoteShippingAddress(): array
     {
         return [
@@ -177,9 +171,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithOneOptionAndQuoteLevelShippingAddressToFrance(): array
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -197,9 +188,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
         return [$quoteTransfer, 20.00];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithOneOptionAndQuoteLevelShippingAddressToMoon(): array
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -217,9 +205,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
         return [$quoteTransfer, 66.00];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithTwoOptionsAndQuoteLevelShippingAddressToGermany(): array
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -238,9 +223,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
         return [$quoteTransfer, 15.00];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithTwoItemsWithOneOptionAndQuoteLevelShippingAddressToGermany(): array
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -263,11 +245,6 @@ class ProductOptionTaxRateCalculationWithQuoteLevelShippingAddressTest extends U
         return [$quoteTransfer, 15.00];
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int
-     */
     protected function getProductOptionValueIdBySku(string $sku): int
     {
         $productOptionValueEntity = SpyProductOptionValueQuery::create()->findOneBySku($sku);

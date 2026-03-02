@@ -189,11 +189,6 @@ class ProductOptionGroupSaver implements ProductOptionGroupSaverInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer $productOptionGroupTransfer
-     *
-     * @return void
-     */
     protected function executePreRemoveProductOptionValuePlugins(ProductOptionGroupTransfer $productOptionGroupTransfer): void
     {
         foreach ($this->productOptionValuesPreRemovePlugins as $productOptionValuesPreRemovePlugin) {

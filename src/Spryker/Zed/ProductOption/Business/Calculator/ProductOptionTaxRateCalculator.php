@@ -38,11 +38,6 @@ class ProductOptionTaxRateCalculator implements CalculatorInterface
      */
     protected ProductOptionToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToTaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         ProductOptionQueryContainerInterface $queryContainer,
         ProductOptionToTaxFacadeInterface $taxFacade,
@@ -64,11 +59,6 @@ class ProductOptionTaxRateCalculator implements CalculatorInterface
         $quoteTransfer->setItems($itemTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return \Generated\Shared\Transfer\CalculableObjectTransfer
-     */
     public function recalculateForCalculableObject(CalculableObjectTransfer $calculableObjectTransfer): CalculableObjectTransfer
     {
         $itemTransfers = $this->recalculateByShippingAddressAndItemTransfers($calculableObjectTransfer->getShippingAddress(), $calculableObjectTransfer->getItems(), $calculableObjectTransfer->getStore());
@@ -97,12 +87,6 @@ class ProductOptionTaxRateCalculator implements CalculatorInterface
         return $this->setItemsTaxRate($itemTransfers, $taxRates);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AddressTransfer|null $shippingAddressTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     protected function getShippingCountryIsoCode(?AddressTransfer $shippingAddressTransfer, ?StoreTransfer $storeTransfer = null): string
     {
         if ($shippingAddressTransfer === null || !$shippingAddressTransfer->getIso2Code()) {

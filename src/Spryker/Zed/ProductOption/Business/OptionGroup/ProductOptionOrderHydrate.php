@@ -25,9 +25,6 @@ class ProductOptionOrderHydrate implements ProductOptionOrderHydrateInterface
      */
     protected $productOptionQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $productOptionQueryContainer
-     */
     public function __construct(ProductOptionQueryContainerInterface $productOptionQueryContainer)
     {
         $this->productOptionQueryContainer = $productOptionQueryContainer;
@@ -157,11 +154,6 @@ class ProductOptionOrderHydrate implements ProductOptionOrderHydrateInterface
             ->find();
     }
 
-    /**
-     * @param \Orm\Zed\Sales\Persistence\SpySalesOrderItemOption $orderItemOptionEntity
-     *
-     * @return int|null
-     */
     protected function getIdProductOptionValue(SpySalesOrderItemOption $orderItemOptionEntity): ?int
     {
         /** @var int|null $idProductOptionValue */

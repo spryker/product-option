@@ -196,9 +196,6 @@ class ProductOptionCommunicationFactory extends AbstractCommunicationFactory
         return new PriceTransformer($this->getMoneyFacade());
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createToggleActiveProductOptionForm(): FormInterface
     {
         return $this->getFormFactory()->create(ToggleActiveProductOptionForm::class);

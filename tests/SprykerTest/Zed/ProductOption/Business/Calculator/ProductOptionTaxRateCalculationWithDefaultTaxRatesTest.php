@@ -48,9 +48,6 @@ class ProductOptionTaxRateCalculationWithDefaultTaxRatesTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -119,9 +116,6 @@ class ProductOptionTaxRateCalculationWithDefaultTaxRatesTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     public function productOptionTaxRateCalculatorWithDefaultTaxRates(): array
     {
         return [
@@ -131,9 +125,6 @@ class ProductOptionTaxRateCalculationWithDefaultTaxRatesTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithoutShippingAddressesAndDefaultCountryIsFrance(): array
     {
         $itemTransfer = (new ItemBuilder())
@@ -146,9 +137,6 @@ class ProductOptionTaxRateCalculationWithDefaultTaxRatesTest extends Unit
         return [$quoteTransfer, 'FR', 20.00];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithoutShippingAddressesAndDefaultCountryIsGermany(): array
     {
         $itemTransfer = (new ItemBuilder())
@@ -161,9 +149,6 @@ class ProductOptionTaxRateCalculationWithDefaultTaxRatesTest extends Unit
         return [$quoteTransfer, 'DE', 15.00];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithoutShippingAddressesAndDefaultCountryIsMoon(): array
     {
         $itemTransfer = (new ItemBuilder())

@@ -220,11 +220,6 @@ class ProductOptionDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCountryQuery(Container $container): Container
     {
         $container->set(static::QUERY_COUNTRY, $container->factory(function (Container $container) {
@@ -301,11 +296,6 @@ class ProductOptionDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionValuesPreRemovePlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OPTION_VALUES_PRE_REMOVE, function (Container $container) {
@@ -323,11 +313,6 @@ class ProductOptionDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionListActionViewDataExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OPTION_LIST_ACTION_VIEW_DATA_EXPANDER, function (Container $container) {
@@ -345,11 +330,6 @@ class ProductOptionDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionListTableQueryCriteriaExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OPTION_LIST_TABLE_QUERY_CRITERIA_EXPANDER, function (Container $container) {
@@ -367,11 +347,6 @@ class ProductOptionDependencyProvider extends AbstractBundleDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionGroupExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OPTION_GROUP_EXPANDER, function (Container $container) {

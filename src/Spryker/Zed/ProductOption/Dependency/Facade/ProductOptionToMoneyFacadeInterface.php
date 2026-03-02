@@ -18,18 +18,8 @@ interface ProductOptionToMoneyFacadeInterface
      */
     public function convertDecimalToInteger($value): int;
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyTransfer $moneyTransfer
-     *
-     * @return string
-     */
     public function formatWithSymbol(MoneyTransfer $moneyTransfer): string;
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyTransfer $moneyTransfer
-     *
-     * @return string
-     */
     public function formatWithoutSymbol(MoneyTransfer $moneyTransfer): string;
 
     /**

@@ -42,11 +42,6 @@ class ProductOptionPresentationTester extends Actor
      */
     protected $locales = ['en_US', 'de_DE'];
 
-    /**
-     * @param array $values
-     *
-     * @return void
-     */
     public function fillOptionValues(array $values): void
     {
         foreach ($values as $index => $value) {
@@ -73,11 +68,6 @@ class ProductOptionPresentationTester extends Actor
         }
     }
 
-    /**
-     * @param array $groupData
-     *
-     * @return void
-     */
     public function fillOptionGroupData(array $groupData): void
     {
         $this->fillField('#product_option_general_name', $groupData['group_name_translation_key'] . rand(1, 999));
@@ -94,17 +84,11 @@ class ProductOptionPresentationTester extends Actor
         );
     }
 
-    /**
-     * @return void
-     */
     public function expandSecondTranslationBlock(): void
     {
         $this->click(static::LANGUAGE_SWITCH_XPATH);
     }
 
-    /**
-     * @return void
-     */
     public function assignProducts(): void
     {
         $this->selectProductTab();
@@ -123,9 +107,6 @@ class ProductOptionPresentationTester extends Actor
         $this->waitForElementNotVisible('.dataTables_processing');
     }
 
-    /**
-     * @return void
-     */
     public function unassignProduct(): void
     {
         $this->click('#products-to-be-assigned');
@@ -135,25 +116,16 @@ class ProductOptionPresentationTester extends Actor
         $this->click("//a[@data-id='" . $idProduct . "']");
     }
 
-    /**
-     * @return void
-     */
     public function selectProductTab(): void
     {
         $this->waitAndClick('//*[@data-qa="tab-products"]');
     }
 
-    /**
-     * @return void
-     */
     public function submitProductGroupForm(): void
     {
         $this->waitAndClick('#create-product-option-button');
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductOptionGroupTransfer
-     */
     public function createProductOptionGroupTransfer(): ProductOptionGroupTransfer
     {
         $productOptionGroupTransfer = new ProductOptionGroupTransfer();
@@ -199,12 +171,6 @@ class ProductOptionPresentationTester extends Actor
         return $productOptionGroupTransfer;
     }
 
-    /**
-     * @param string $translationKey
-     * @param string $localeIsoCode
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTranslationTransfer
-     */
     protected function createTranslation(string $translationKey, string $localeIsoCode): ProductOptionTranslationTransfer
     {
         $productOptionTranslationTransfer = new ProductOptionTranslationTransfer();
@@ -215,12 +181,6 @@ class ProductOptionPresentationTester extends Actor
         return $productOptionTranslationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionValueTransfer $productOptionValueTransfer
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer $productOptionGroupTransfer
-     *
-     * @return void
-     */
     protected function addOptionValueTranslations(
         ProductOptionValueTransfer $productOptionValueTransfer,
         ProductOptionGroupTransfer $productOptionGroupTransfer
@@ -234,11 +194,6 @@ class ProductOptionPresentationTester extends Actor
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer $productOptionGroupTransfer
-     *
-     * @return void
-     */
     protected function addGroupNameTranslations(ProductOptionGroupTransfer $productOptionGroupTransfer): void
     {
         foreach ($this->locales as $locale) {
@@ -247,11 +202,6 @@ class ProductOptionPresentationTester extends Actor
         }
     }
 
-    /**
-     * @param string $element
-     *
-     * @return void
-     */
     public function waitAndClick(string $element): void
     {
         $this->waitForElement($element);

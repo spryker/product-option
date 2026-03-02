@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\LocaleTransfer;
 
 interface ProductOptionToLocaleFacadeInterface
 {
-    /**
-     * @param string $localeName
-     *
-     * @return bool
-     */
     public function hasLocale(string $localeName): bool;
 
     /**
@@ -32,13 +27,7 @@ interface ProductOptionToLocaleFacadeInterface
      */
     public function getLocaleCollection(): array;
 
-    /**
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getCurrentLocale(): LocaleTransfer;
 
-    /**
-     * @return string
-     */
     public function getCurrentLocaleName(): string;
 }

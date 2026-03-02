@@ -36,10 +36,6 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
      */
     protected static $currentPriceModeBuffer;
 
-    /**
-     * @param \Spryker\Client\ProductOption\Dependency\Client\ProductOptionToPriceClientInterface $priceClient
-     * @param \Spryker\Client\ProductOption\Dependency\Client\ProductOptionToCurrencyClientInterface $currencyClient
-     */
     public function __construct(ProductOptionToPriceClientInterface $priceClient, ProductOptionToCurrencyClientInterface $currencyClient)
     {
         $this->priceClient = $priceClient;

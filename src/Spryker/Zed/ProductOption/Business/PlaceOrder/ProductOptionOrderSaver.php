@@ -19,9 +19,6 @@ class ProductOptionOrderSaver implements ProductOptionOrderSaverInterface
 {
     use TransactionTrait;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToGlossaryFacadeInterface $glossaryFacade
-     */
     public function __construct(
         protected ProductOptionToGlossaryFacadeInterface $glossaryFacade
     ) {
@@ -40,11 +37,6 @@ class ProductOptionOrderSaver implements ProductOptionOrderSaverInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function createSalesOrderItemOptions(QuoteTransfer $quoteTransfer): void
     {
         $this->getTransactionHandler()->handleTransaction(function () use ($quoteTransfer): void {

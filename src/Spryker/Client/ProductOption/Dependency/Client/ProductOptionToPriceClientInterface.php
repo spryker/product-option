@@ -9,8 +9,5 @@ namespace Spryker\Client\ProductOption\Dependency\Client;
 
 interface ProductOptionToPriceClientInterface
 {
-    /**
-     * @return string
-     */
     public function getCurrentPriceMode(): string;
 }

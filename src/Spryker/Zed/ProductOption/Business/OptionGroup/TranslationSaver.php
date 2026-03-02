@@ -24,10 +24,6 @@ class TranslationSaver implements TranslationSaverInterface
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToGlossaryFacadeInterface $glossaryFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ProductOptionToGlossaryFacadeInterface $glossaryFacade,
         ProductOptionToLocaleFacadeInterface $localeFacade

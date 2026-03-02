@@ -11,8 +11,5 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery;
 
 interface ProductOptionToSalesQueryContainerInterface
 {
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
-     */
     public function querySalesOrderItem(): SpySalesOrderItemQuery;
 }

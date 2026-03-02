@@ -78,9 +78,6 @@ class ProductOptionFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -88,9 +85,6 @@ class ProductOptionFacadeTest extends Unit
         $this->tester->addDependencies();
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductAbstractOptionGroupStatusesByProductAbstractIdsShouldReturnStatusesWhenAbstractProductsHaveProductOptions(): void
     {
         // Arrange
@@ -116,9 +110,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($productOptionGroupTransfer->getName(), $productAbstractOptionGroupStatusTransfer->getProductOptionGroupName());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductAbstractOptionGroupStatusesByProductAbstractIdsShouldReturnEmptyArrayWhenAbstractProductsDoesNotHaveProductOptions(): void
     {
         // Arrange
@@ -133,9 +124,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEmpty($productAbstractOptionGroupStatuses);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionGroupShouldPersistProvidedOption(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -160,9 +148,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($productOptionValueTransfer->getSku(), $productOptionValueEntity->getSku());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionGroupUpdatesCurrencyPrices(): void
     {
         // Assign
@@ -196,9 +181,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedGrossResult, $actualGrossPrice);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionGroupInsertsNewCurrencyPrices(): void
     {
         // Assign
@@ -222,9 +204,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedGrossResult, $actualGrossPrice);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductGroupOptionAndAssignProductAbstract(): void
     {
         $this->markTestSkipped('ProductAbstract not assigned');
@@ -249,9 +228,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($assignedProductAbstractEntity->getSku(), $productAbstractEntity->getSku());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductGroupOptionAndDeAssignProductAbstract(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -277,9 +253,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEmpty($productOptionGroupEntity->getSpyProductAbstracts());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductGroupOptionAndRemoveProductOptionValues(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -305,9 +278,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEmpty($productOptionGroupEntity->getSpyProductOptionValues());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionValuePersistsOption(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -329,9 +299,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($productOptionValueTransfer->getValue(), $productOptionValueEntity->getValue());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionValueUpdatesCurrencyPrices(): void
     {
         // Assign
@@ -364,9 +331,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedGrossResult, $actualGrossPrice);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveProductOptionValueInsertsNewCurrencyPrices(): void
     {
         // Assign
@@ -388,9 +352,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedGrossResult, $actualGrossPrice);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueShouldReturnPersistedOptionValue(): void
     {
         $storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => static::DEFAULT_STORE_NAME]);
@@ -415,9 +376,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($productOptionValueTransfer->getSku(), $productOptionTransfer->getSku());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionByIdShouldReturnPersistedOptionGroup(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -434,9 +392,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($productOptionGroupTransfer->getName(), $persistedProductOptionGroupTransfer->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionGroupByIdReturnsAllCurrencies(): void
     {
         // Assign
@@ -470,9 +425,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEquals($expectedCurrencies, $actualCurrencies);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueByIdReturnsRequestCurrencyAndStorePrices(): void
     {
         // Assign
@@ -514,9 +466,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedNetAmount, $actualProductOptionValue->getUnitNetPrice());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueByIdReturnsDefaultStorePricesWhenPriceNotFoundForCurrentCurrency(): void
     {
         // Assign
@@ -558,9 +507,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedNetAmount, $actualProductOptionValue->getUnitNetPrice());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueByIdReturnsMixedPricesWhenPricesAreNotFullyDefined(): void
     {
         // Assign
@@ -604,9 +550,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame($expectedNetAmount, $actualProductOptionValue->getUnitNetPrice());
     }
 
-    /**
-     * @return void
-     */
     public function testCalculateTaxRateForProductOptionShouldSetRateToProvidedOptions(): void
     {
         $iso2Code = 'DE';
@@ -643,9 +586,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame((float)$taxRate, $productOptionTransfer->getTaxRate());
     }
 
-    /**
-     * @return void
-     */
     public function testCalculateTaxRateForProductOptionShouldSetRateToProvidedOptionsWithItemLevelShipments(): void
     {
         $iso2Code = 'DE';
@@ -685,9 +625,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame((float)$taxRate, $productOptionTransfer->getTaxRate());
     }
 
-    /**
-     * @return void
-     */
     public function testToggleOptionActiveShouldActivateDeactiveOptionAcordingly(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -713,9 +650,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertFalse($productOptionGroupEntity->getActive());
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractToProductOptionGroupShouldAddNewProductToGroup(): void
     {
         $productOptionFacade = $this->getProductOptionFacade();
@@ -742,9 +676,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEquals($assignedAbstractProducts[0]->getSku(), $productAbstractEntity->getSku());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueStorePricesReturnsFormattedPrices(): void
     {
         // Assign
@@ -783,9 +714,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEquals($expectedResult, $actualResult);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueStorePricesReturnsDefaultStoreCurrencyWhenCurrencyNotExistsInCurrentStore(): void
     {
         // Assign
@@ -824,9 +752,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEquals($expectedResult, $actualResult);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionValueStorePricesReturnsADefaultStorePriceWhenACurrencyPriceIsNull(): void
     {
         // Assign
@@ -879,9 +804,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertEquals($expectedResult, $actualResult);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionCollectionByProductOptionCriteriaWithOneIdReturnsCollection(): void
     {
         // Arrange
@@ -905,9 +827,6 @@ class ProductOptionFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionCollectionByProductOptionCriteriaWithTwoIdsReturnsCollection(): void
     {
         // Arrange
@@ -935,9 +854,6 @@ class ProductOptionFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionCollectionByProductOptionCriteriaWithDeactivatedProductOptionGroupReturnsEmptyCollection(): void
     {
         // Arrange
@@ -970,9 +886,6 @@ class ProductOptionFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionCollectionByProductOptionCriteriaWithAssignedProductAbstractReturnsCollection(): void
     {
         // Arrange
@@ -1004,9 +917,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertCount(1, $actualResult->getProductOptions());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionCollectionByProductOptionCriteriaWithNonAssignedProductAbstractReturnsEmptyCollection(): void
     {
         // Arrange
@@ -1036,9 +946,6 @@ class ProductOptionFacadeTest extends Unit
         $this->assertCount(0, $actualResult->getProductOptions());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionCollectionByProductOptionCriteriaWithNoIdReturnsEmptyCollection(): void
     {
         // Arrange
@@ -1052,19 +959,11 @@ class ProductOptionFacadeTest extends Unit
         $this->assertSame(count($productOptionIds), $actualResult->getProductOptions()->count());
     }
 
-    /**
-     * @return int
-     */
     protected function getCurrentIdStore(): int
     {
         return $this->mockStoreFacadeDefaultStore()->getIdStore();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionValueTransfer|null $productOptionValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionGroupTransfer
-     */
     protected function createProductOptionGroupTransfer(?ProductOptionValueTransfer $productOptionValueTransfer = null): ProductOptionGroupTransfer
     {
         $productOptionGroupTransfer = new ProductOptionGroupTransfer();
@@ -1088,11 +987,6 @@ class ProductOptionFacadeTest extends Unit
         return $productOptionGroupTransfer;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionValueTransfer
-     */
     protected function createProductOptionValueTransfer(string $sku = 'sku_for_testing'): ProductOptionValueTransfer
     {
         $productOptionValueTransfer = new ProductOptionValueTransfer();
@@ -1111,9 +1005,6 @@ class ProductOptionFacadeTest extends Unit
         return $productOptionValueTransfer;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
-     */
     protected function getProductOptionFacade(): ProductOptionFacadeInterface
     {
         return $this->tester->getLocator()->productOption()->facade();

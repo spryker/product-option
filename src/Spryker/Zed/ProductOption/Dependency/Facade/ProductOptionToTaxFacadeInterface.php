@@ -20,19 +20,10 @@ interface ProductOptionToTaxFacadeInterface
      */
     public function getTaxAmountFromGrossPrice($grossPrice, $taxRate): float;
 
-    /**
-     * @return string
-     */
     public function getDefaultTaxCountryIso2Code(): string;
 
-    /**
-     * @return float
-     */
     public function getDefaultTaxRate(): float;
 
-    /**
-     * @return \Generated\Shared\Transfer\TaxSetCollectionTransfer
-     */
     public function getTaxSets(): TaxSetCollectionTransfer;
 
     /**

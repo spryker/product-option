@@ -38,9 +38,6 @@ class ProductOptionGroupQueryExpander implements ProductOptionGroupQueryExpander
         return $query;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QueryCriteriaTransfer
-     */
     protected function buildQueryCriteriaTransfer(): QueryCriteriaTransfer
     {
         $queryCriteriaTransfer = new QueryCriteriaTransfer();

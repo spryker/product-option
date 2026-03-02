@@ -23,11 +23,6 @@ use SprykerTest\Zed\ProductOption\ProductOptionCommunicationTester;
  */
 class ProductOptionListCest
 {
-    /**
-     * @param \SprykerTest\Zed\ProductOption\ProductOptionCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbIsVisible(ProductOptionCommunicationTester $i): void
     {
         $i->amOnPage(ProductOptionListPage::URL);

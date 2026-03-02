@@ -11,22 +11,9 @@ use Generated\Shared\Transfer\CurrencyTransfer;
 
 interface ProductOptionToCurrencyFacadeInterface
 {
-    /**
-     * @param int $idCurrency
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getByIdCurrency(int $idCurrency): CurrencyTransfer;
 
-    /**
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getCurrent(): CurrencyTransfer;
 
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function fromIsoCode(string $isoCode): CurrencyTransfer;
 }

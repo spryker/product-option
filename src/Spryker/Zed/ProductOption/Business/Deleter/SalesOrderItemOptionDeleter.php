@@ -13,18 +13,10 @@ use Spryker\Zed\ProductOption\Persistence\ProductOptionEntityManagerInterface;
 
 class SalesOrderItemOptionDeleter implements SalesOrderItemOptionDeleterInterface
 {
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionEntityManagerInterface $productOptionEntityManager
-     */
     public function __construct(protected ProductOptionEntityManagerInterface $productOptionEntityManager)
     {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderItemOptionCollectionDeleteCriteriaTransfer $salesOrderItemOptionCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderItemOptionCollectionResponseTransfer
-     */
     public function deleteSalesOrderItemOptionCollection(
         SalesOrderItemOptionCollectionDeleteCriteriaTransfer $salesOrderItemOptionCollectionDeleteCriteriaTransfer
     ): SalesOrderItemOptionCollectionResponseTransfer {

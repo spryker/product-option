@@ -16,21 +16,12 @@ class SalesOrderItemOptionReplacer implements SalesOrderItemOptionReplacerInterf
 {
     use TransactionTrait;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionEntityManagerInterface $productOptionEntityManager
-     * @param \Spryker\Zed\ProductOption\Business\PlaceOrder\ProductOptionOrderSaverInterface $productOptionOrderSaver
-     */
     public function __construct(
         protected ProductOptionEntityManagerInterface $productOptionEntityManager,
         protected ProductOptionOrderSaverInterface $productOptionOrderSaver
     ) {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function replaceSalesOrderItemOptions(QuoteTransfer $quoteTransfer): void
     {
         $salesOrderItemIds = $this->extractSalesOrderItemIds($quoteTransfer);
@@ -74,11 +65,6 @@ class SalesOrderItemOptionReplacer implements SalesOrderItemOptionReplacerInterf
         return array_unique($salesOrderItemIds);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function unsetSalesOrderItemOptionIds(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {

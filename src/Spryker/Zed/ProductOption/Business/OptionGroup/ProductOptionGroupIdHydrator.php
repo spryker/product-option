@@ -17,9 +17,6 @@ class ProductOptionGroupIdHydrator implements ProductOptionGroupIdHydratorInterf
      */
     protected $productOptionQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $productOptionQueryContainer
-     */
     public function __construct(ProductOptionQueryContainerInterface $productOptionQueryContainer)
     {
         $this->productOptionQueryContainer = $productOptionQueryContainer;

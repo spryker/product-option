@@ -19,9 +19,6 @@ class OptionTabs extends AbstractTabs
      */
     protected $productOptionGroupForm;
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $productOptionGroupForm
-     */
     public function __construct(FormInterface $productOptionGroupForm)
     {
         $this->productOptionGroupForm = $productOptionGroupForm;

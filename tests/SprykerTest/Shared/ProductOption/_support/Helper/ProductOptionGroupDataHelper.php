@@ -44,11 +44,6 @@ class ProductOptionGroupDataHelper extends Module
      */
     public const STORE_NAME = 'storeName';
 
-    /**
-     * @param array $override
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionGroupTransfer
-     */
     public function haveProductOptionGroup(array $override = []): ProductOptionGroupTransfer
     {
         $productOptionGroupTransfer = (new ProductOptionGroupBuilder($override))->build();
@@ -60,11 +55,6 @@ class ProductOptionGroupDataHelper extends Module
         return $productOptionGroupTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer $productOptionGroupTransfer
-     *
-     * @return int
-     */
     protected function saveGroup(ProductOptionGroupTransfer $productOptionGroupTransfer): int
     {
         $entity = new SpyProductOptionGroup();
@@ -121,12 +111,6 @@ class ProductOptionGroupDataHelper extends Module
         return $productOptionGroupTransfer;
     }
 
-    /**
-     * @param array $overrideValue
-     * @param array $overridePrices
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionValueTransfer
-     */
     protected function createProductOptionValueTransfer(array $overrideValue = [], array $overridePrices = []): ProductOptionValueTransfer
     {
         $productOptionValueTransfer = (new ProductOptionValueBuilder($overrideValue))
@@ -154,21 +138,11 @@ class ProductOptionGroupDataHelper extends Module
         return $productOptionValueTransfer;
     }
 
-    /**
-     * @param string $currencyCode
-     *
-     * @return int|null
-     */
     protected function getIdCurrency(string $currencyCode): ?int
     {
         return $this->getLocator()->currency()->facade()->fromIsoCode($currencyCode)->getIdCurrency();
     }
 
-    /**
-     * @param string|null $storeName
-     *
-     * @return int|null
-     */
     protected function getIdStore(?string $storeName): ?int
     {
         if ($storeName === null) {
@@ -192,9 +166,6 @@ class ProductOptionGroupDataHelper extends Module
         return (new ProductOptionTranslationBuilder($override))->build();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
-     */
     public function getProductOptionFacade(): ProductOptionFacadeInterface
     {
         return $this->getLocator()->productOption()->facade();

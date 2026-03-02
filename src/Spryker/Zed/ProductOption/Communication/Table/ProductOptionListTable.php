@@ -109,12 +109,6 @@ class ProductOptionListTable extends AbstractTable
      */
     protected static $currencyBuffer = [];
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $productOptionQueryContainer
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToCurrencyFacadeInterface $currencyFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToMoneyFacadeInterface $moneyFacade
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionRepositoryInterface $productOptionRepository
-     */
     public function __construct(
         ProductOptionQueryContainerInterface $productOptionQueryContainer,
         ProductOptionToCurrencyFacadeInterface $currencyFacade,

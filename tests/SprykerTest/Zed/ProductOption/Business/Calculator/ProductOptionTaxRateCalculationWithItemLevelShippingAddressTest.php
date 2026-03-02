@@ -57,9 +57,6 @@ class ProductOptionTaxRateCalculationWithItemLevelShippingAddressTest extends Un
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -144,9 +141,6 @@ class ProductOptionTaxRateCalculationWithItemLevelShippingAddressTest extends Un
         }
     }
 
-    /**
-     * @return array
-     */
     public function productOptionTaxRateCalculatorShouldUseItemShippingAddress(): array
     {
         return [
@@ -155,9 +149,6 @@ class ProductOptionTaxRateCalculationWithItemLevelShippingAddressTest extends Un
         ];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithOneItemWithTwoOptionsAndShippingAddressToGermany(): array
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -177,9 +168,6 @@ class ProductOptionTaxRateCalculationWithItemLevelShippingAddressTest extends Un
         return [$quoteTransfer, ['DE' => 15.00]];
     }
 
-    /**
-     * @return array
-     */
     public function getQuoteWithTwoItemsWithOneOptionAndDifferentShippingAddresses(): array
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -236,11 +224,6 @@ class ProductOptionTaxRateCalculationWithItemLevelShippingAddressTest extends Un
         return $bridgeMock;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int
-     */
     protected function getProductOptionValueIdBySku(string $sku): int
     {
         $productOptionValueEntity = SpyProductOptionValueQuery::create()->findOneBySku($sku);

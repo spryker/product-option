@@ -532,12 +532,6 @@ class ProductOptionQueryContainer extends AbstractQueryContainer implements Prod
         return $productOptionValueQuery;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
-     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery $productOptionValueQuery
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
-     */
     protected function applyProductOptionCriteriaFilter(
         ProductOptionCriteriaTransfer $productOptionCriteriaTransfer,
         SpyProductOptionValueQuery $productOptionValueQuery
@@ -557,12 +551,6 @@ class ProductOptionQueryContainer extends AbstractQueryContainer implements Prod
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
-     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery $productOptionValueQuery
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
-     */
     protected function filterProductOptionGroupByActiveField(
         ProductOptionCriteriaTransfer $productOptionCriteriaTransfer,
         SpyProductOptionValueQuery $productOptionValueQuery
@@ -581,12 +569,6 @@ class ProductOptionQueryContainer extends AbstractQueryContainer implements Prod
         return $productOptionValueQuery;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
-     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery $productOptionValueQuery
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValueQuery
-     */
     protected function filterProductOptionGroupByProductConcreteSku(
         ProductOptionCriteriaTransfer $productOptionCriteriaTransfer,
         SpyProductOptionValueQuery $productOptionValueQuery

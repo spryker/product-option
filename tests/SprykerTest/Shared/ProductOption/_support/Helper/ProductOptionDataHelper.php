@@ -24,11 +24,6 @@ class ProductOptionDataHelper extends Module
     use DataCleanupHelperTrait;
     use LocatorHelperTrait;
 
-    /**
-     * @param array $productOptionGroupOverride
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionGroupTransfer
-     */
     public function haveProductOptionGroup(array $productOptionGroupOverride = []): ProductOptionGroupTransfer
     {
         $productOptionGroupTransfer = (new ProductOptionGroupBuilder($productOptionGroupOverride))
@@ -45,12 +40,6 @@ class ProductOptionDataHelper extends Module
         return $productOptionGroupTransfer;
     }
 
-    /**
-     * @param string $productAbstractSku
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionValueTransfer
-     */
     public function haveProductOptionValueForAbstractProduct(
         string $productAbstractSku,
         StoreTransfer $storeTransfer
@@ -83,11 +72,6 @@ class ProductOptionDataHelper extends Module
         return $productOptionGroupTransfer->getProductOptionValues()->getIterator()->current();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     protected function getDefaultStoreCurrency(StoreTransfer $storeTransfer): CurrencyTransfer
     {
         $currencyTransfers = $this->getLocator()->currency()->facade()->getCurrencyTransfersByIsoCodes([
@@ -97,9 +81,6 @@ class ProductOptionDataHelper extends Module
         return array_shift($currencyTransfers);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
-     */
     protected function getProductOptionFacade(): ProductOptionFacadeInterface
     {
         return $this->getLocator()->productOption()->facade();

@@ -43,11 +43,6 @@ class ListController extends IndexController
         );
     }
 
-    /**
-     * @param array $viewData
-     *
-     * @return array
-     */
     protected function expandViewData(array $viewData): array
     {
         $productOptionListActionViewDataExpanderPlugins = $this->getFactory()

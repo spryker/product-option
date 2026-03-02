@@ -23,11 +23,6 @@ use SprykerTest\Zed\ProductOption\ProductOptionPresentationTester;
  */
 class ProductOptionEditCest
 {
-    /**
-     * @param \SprykerTest\Zed\ProductOption\ProductOptionPresentationTester $i
-     *
-     * @return void
-     */
     public function _before(ProductOptionPresentationTester $i): void
     {
         $i->amZed();
@@ -105,9 +100,6 @@ class ProductOptionEditCest
         $i->canSee(ProductOptionEditPage::PRODUCT_GROUP_EDIT_ACTIVATE_SUCCESS_MESSAGE);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacade
-     */
     protected function createProductOptionFacade(): ProductOptionFacade
     {
         return new ProductOptionFacade();

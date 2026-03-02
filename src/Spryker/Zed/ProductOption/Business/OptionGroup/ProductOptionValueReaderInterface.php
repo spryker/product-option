@@ -13,18 +13,8 @@ use Generated\Shared\Transfer\ProductOptionTransfer;
 
 interface ProductOptionValueReaderInterface
 {
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTransfer|null
-     */
     public function findProductOptionByIdProductOptionValue(int $idProductOptionValue): ?ProductOptionTransfer;
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return bool
-     */
     public function checkProductOptionValueExistence(int $idProductOptionValue): bool;
 
     /**
@@ -37,11 +27,6 @@ interface ProductOptionValueReaderInterface
      */
     public function getProductOption($idProductOptionValue, ?string $currencyCode = null);
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionCollectionTransfer
-     */
     public function getProductOptionCollectionByProductOptionCriteria(
         ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
     ): ProductOptionCollectionTransfer;

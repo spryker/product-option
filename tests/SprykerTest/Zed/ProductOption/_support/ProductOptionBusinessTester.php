@@ -63,23 +63,11 @@ class ProductOptionBusinessTester extends Actor
      */
     protected const DEFAULT_CURRENCY = 'EUR';
 
-    /**
-     * @return void
-     */
     public function addDependencies(): void
     {
         $this->getContainer()->set(static::SERVICE_CURRENCY, static::DEFAULT_CURRENCY);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionValueTransfer $productOptionValueTransfer
-     * @param int|null $idStore
-     * @param int $idCurrency
-     * @param int $netPrice
-     * @param int $grossPrice
-     *
-     * @return void
-     */
     public function addPrice(ProductOptionValueTransfer $productOptionValueTransfer, ?int $idStore, int $idCurrency, int $netPrice, int $grossPrice): void
     {
         $productOptionValueTransfer->addPrice(
@@ -91,11 +79,6 @@ class ProductOptionBusinessTester extends Actor
         );
     }
 
-    /**
-     * @param int $idProductOptionGroup
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValuePrice
-     */
     public function getFirstProductOptionValuePriceByIdProductOptionGroup(int $idProductOptionGroup): SpyProductOptionValuePrice
     {
         return SpyProductOptionValuePriceQuery::create()
@@ -106,11 +89,6 @@ class ProductOptionBusinessTester extends Actor
             ->findOne();
     }
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValuePrice|null
-     */
     public function getFirstProductOptionValuePriceByIdProductOptionValue(int $idProductOptionValue): ?SpyProductOptionValuePrice
     {
         return SpyProductOptionValuePriceQuery::create()
@@ -118,12 +96,6 @@ class ProductOptionBusinessTester extends Actor
             ->findOne();
     }
 
-    /**
-     * @param string $iso2Code
-     * @param int $taxRate
-     *
-     * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
-     */
     public function createTaxSet(string $iso2Code, int $taxRate): SpyTaxSet
     {
         $countryEntity = SpyCountryQuery::create()->findOneByIso2Code($iso2Code);
@@ -146,22 +118,12 @@ class ProductOptionBusinessTester extends Actor
         return $taxSetEntity;
     }
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue
-     */
     public function findOneProductOptionValueById(int $idProductOptionValue): SpyProductOptionValue
     {
         return SpyProductOptionValueQuery::create()
             ->findOneByIdProductOptionValue($idProductOptionValue);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
-     */
     public function createProductAbstract(string $sku): SpyProductAbstract
     {
         $productAbstractEntity = new SpyProductAbstract();
@@ -172,11 +134,6 @@ class ProductOptionBusinessTester extends Actor
         return $productAbstractEntity;
     }
 
-    /**
-     * @param string $iso2Code
-     *
-     * @return \Generated\Shared\Transfer\AddressTransfer
-     */
     public function createAddressTransfer(string $iso2Code): AddressTransfer
     {
         $addressTransfer = new AddressTransfer();
@@ -198,11 +155,6 @@ class ProductOptionBusinessTester extends Actor
         );
     }
 
-    /**
-     * @param string $iso2Code
-     *
-     * @return \Generated\Shared\Transfer\CountryTransfer
-     */
     protected function haveCountryWithIso2Code(string $iso2Code): CountryTransfer
     {
         $countryEntity = SpyCountryQuery::create()->filterByIso2Code($iso2Code)->findOne();
@@ -218,21 +170,11 @@ class ProductOptionBusinessTester extends Actor
         return $countryTransfer;
     }
 
-    /**
-     * @param string $iso2Code
-     *
-     * @return int
-     */
     public function getCountryIdByIso2Code(string $iso2Code): int
     {
         return $this->haveCountryWithIso2Code($iso2Code)->getIdCountry();
     }
 
-    /**
-     * @param int $idSalesOrderItem
-     *
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemOption
-     */
     public function createSalesOrderItemOption(int $idSalesOrderItem): SpySalesOrderItemOption
     {
         $salesOrderItemOptionEntity = (new SpySalesOrderItemOption())
@@ -246,9 +188,6 @@ class ProductOptionBusinessTester extends Actor
         return $salesOrderItemOptionEntity;
     }
 
-    /**
-     * @return void
-     */
     public function ensureSalesOrderItemOptionTableIsEmpty(): void
     {
         $this->ensureDatabaseTableIsEmpty($this->getSalesOrderItemOptionQuery());
@@ -262,11 +201,6 @@ class ProductOptionBusinessTester extends Actor
         return $this->getSalesOrderItemOptionQuery()->find();
     }
 
-    /**
-     * @param string $stateMachineProcessName
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function createOrderWithProductOptions(string $stateMachineProcessName): OrderTransfer
     {
         $storeTransfer = $this->haveStore([StoreTransfer::NAME => 'DE', StoreTransfer::DEFAULT_CURRENCY_ISO_CODE => 'EUR']);
@@ -298,11 +232,6 @@ class ProductOptionBusinessTester extends Actor
             ->setItems($saveOrderTransfer->getOrderItems());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTransfer
-     */
     protected function createProductOption(StoreTransfer $storeTransfer): ProductOptionTransfer
     {
         $productOptionGroupTransfer = $this->haveProductOptionGroupWithValues(
@@ -331,9 +260,6 @@ class ProductOptionBusinessTester extends Actor
         return $productOptionTransfer;
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemOptionQuery
-     */
     protected function getSalesOrderItemOptionQuery(): SpySalesOrderItemOptionQuery
     {
         return SpySalesOrderItemOptionQuery::create();

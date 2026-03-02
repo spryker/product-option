@@ -61,11 +61,6 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
      */
     protected static $currencyCodeBuffer = [];
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToCurrencyFacadeInterface $currencyFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToPriceFacadeInterface $priceFacade
-     */
     public function __construct(
         ProductOptionToCurrencyFacadeInterface $currencyFacade,
         ProductOptionToStoreFacadeInterface $storeFacade,
@@ -146,11 +141,6 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
         return $priceMap;
     }
 
-    /**
-     * @param string|null $currencyCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     protected function getCurrency(?string $currencyCode = null): CurrencyTransfer
     {
         return $this->currencyFacade->fromIsoCode($currencyCode ?? $this->currencyFacade->getCurrent()->getCode());
@@ -209,12 +199,6 @@ class ProductOptionValuePriceReader implements ProductOptionValuePriceReaderInte
         return (new ProductOptionValueStorePricesResponseTransfer())->setStorePrices($storePrices);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionTransfer $productOptionTransfer
-     * @param string|null $priceMode
-     *
-     * @return int|null
-     */
     public function resolveUnitPrice(ProductOptionTransfer $productOptionTransfer, ?string $priceMode): ?int
     {
         if (!$priceMode) {

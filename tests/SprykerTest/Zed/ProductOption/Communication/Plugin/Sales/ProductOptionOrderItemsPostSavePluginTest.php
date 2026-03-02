@@ -40,9 +40,6 @@ class ProductOptionOrderItemsPostSavePluginTest extends Unit
      */
     protected ProductOptionCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -51,9 +48,6 @@ class ProductOptionOrderItemsPostSavePluginTest extends Unit
         $this->tester->ensureSalesOrderItemOptionDatabaseTableIsEmpty();
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotCreateAnyProductOptions(): void
     {
         // Arrange
@@ -66,9 +60,6 @@ class ProductOptionOrderItemsPostSavePluginTest extends Unit
         $this->assertSame(0, $this->tester->getSalesOrderItemOptionQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldCreateProductOption(): void
     {
         // Arrange
@@ -81,9 +72,6 @@ class ProductOptionOrderItemsPostSavePluginTest extends Unit
         $this->assertSalesOrderItemProductOptionEntity($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldThrowPropelExceptionWhenIdSalesOrderItemIsNotSet(): void
     {
         // Arrange
@@ -97,11 +85,6 @@ class ProductOptionOrderItemsPostSavePluginTest extends Unit
         (new ProductOptionOrderItemsPostSavePlugin())->execute(new SaveOrderTransfer(), $quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function assertSalesOrderItemProductOptionEntity(QuoteTransfer $quoteTransfer): void
     {
         /** @var \Generated\Shared\Transfer\ItemTransfer $itemTransfer */
@@ -117,11 +100,6 @@ class ProductOptionOrderItemsPostSavePluginTest extends Unit
         $this->assertSame($productOptionTransfer->getValue(), $salesOrderItemOptionEntity->getValue());
     }
 
-    /**
-     * @param bool|null $withProductOptions
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createOrder(?bool $withProductOptions = false): QuoteTransfer
     {
         $quoteTransfer = (new QuoteBuilder())

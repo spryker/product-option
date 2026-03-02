@@ -34,9 +34,6 @@ class DeleteSalesOrderItemOptionCollectionTest extends Unit
      */
     protected ProductOptionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -45,9 +42,6 @@ class DeleteSalesOrderItemOptionCollectionTest extends Unit
         $this->tester->ensureSalesOrderItemOptionTableIsEmpty();
     }
 
-    /**
-     * @return void
-     */
     public function testDeletesSalesOrderItemOptionEntitiesBySalesOrderItemIds(): void
     {
         // Arrange
@@ -69,9 +63,6 @@ class DeleteSalesOrderItemOptionCollectionTest extends Unit
         $this->assertSame($salesOrderItemOptionEntity->getIdSalesOrderItemOption(), $salesOrderItemOptionEntities[0]->getIdSalesOrderItemOption());
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotDeleteSalesOrderItemOptionEntitiesWhenNoEntitiesFoundBySalesOrderItemIds(): void
     {
         // Arrange
@@ -91,9 +82,6 @@ class DeleteSalesOrderItemOptionCollectionTest extends Unit
         $this->assertSame($salesOrderItemOptionEntity->getIdSalesOrderItemOption(), $salesOrderItemOptionEntities[0]->getIdSalesOrderItemOption());
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotDeleteSalesOrderItemOptionEntitiesWhenNoCriteriaConditionsAreSet(): void
     {
         // Arrange

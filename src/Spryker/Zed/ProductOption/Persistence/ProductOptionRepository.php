@@ -87,11 +87,6 @@ class ProductOptionRepository extends AbstractRepository implements ProductOptio
             ->mapProductOptionValueEntityCollectionToProductOptionValueTransfers($productOptionValueQuery->find());
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\ModelCriteria $query
-     *
-     * @return \Propel\Runtime\ActiveQuery\ModelCriteria
-     */
     public function expandProductOptionGroupQuery(ModelCriteria $query): ModelCriteria
     {
         return $this->getFactory()->createProductOptionGroupQueryExpander()->expandQuery($query);

@@ -39,9 +39,6 @@ class ExpandOrderItemsWithProductOptionsTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -49,9 +46,6 @@ class ExpandOrderItemsWithProductOptionsTest extends Unit
         $this->tester->configureTestStateMachine([static::DEFAULT_OMS_PROCESS_NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithProductOptionsExpandOrderItemsWithProductOptions(): void
     {
         // Arrange
@@ -73,9 +67,6 @@ class ExpandOrderItemsWithProductOptionsTest extends Unit
         $this->assertNotNull($itemTransfers[0]->getUnitProductOptionPriceAggregation());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithProductOptionsExpandOrderItemsWithProdcutOptionValue(): void
     {
         // Arrange
@@ -96,9 +87,6 @@ class ExpandOrderItemsWithProductOptionsTest extends Unit
         $this->assertNotEmpty($itemTransfers[0]->getProductOptions()->offsetGet(0)->getIdProductOptionValue());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithProductOptionsWithoutSalesOrderItemId(): void
     {
         // Act
@@ -110,9 +98,6 @@ class ExpandOrderItemsWithProductOptionsTest extends Unit
         $this->assertEmpty($itemTransfers[0]->getProductOptions());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithProductOptionsWithFakeSalesOrderItemId(): void
     {
         // Act

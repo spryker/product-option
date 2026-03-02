@@ -32,10 +32,5 @@ interface ProductOptionRepositoryInterface
      */
     public function getProductOptionValuesBySkus(array $productOptionSkus): array;
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\ModelCriteria $query
-     *
-     * @return \Propel\Runtime\ActiveQuery\ModelCriteria
-     */
     public function expandProductOptionGroupQuery(ModelCriteria $query): ModelCriteria;
 }

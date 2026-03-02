@@ -39,9 +39,6 @@ class HydrateCartReorderItemWithProductOptionsTest extends Unit
      */
     protected ProductOptionBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldAddReorderItemsWithIdProductOptionValueWhenItemWasNotAddedToReorderItems(): void
     {
         // Arrange
@@ -77,9 +74,6 @@ class HydrateCartReorderItemWithProductOptionsTest extends Unit
         $this->assertSame($orderItemTransfers[1]->getQuantityOrFail(), $reorderItemTransfer->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldAddIdProductOptionValueToReorderItemWhenItemWasPreviouslyAddedToReorderItems(): void
     {
         // Arrange
@@ -117,9 +111,6 @@ class HydrateCartReorderItemWithProductOptionsTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShouldDoNothingWhenNoItemsWithProductOptionsProvided(): void
     {
         // Arrange

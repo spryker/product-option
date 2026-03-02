@@ -31,9 +31,6 @@ use SprykerTest\Zed\ProductOption\Business\MockProvider;
  */
 class ProductOptionOrderSaverTest extends MockProvider
 {
-    /**
-     * @return void
-     */
     public function testSaveOptionShouldPersistProvidedOptions(): void
     {
         $glossaryFacadeMock = $this->createGlossaryFacadeMock();

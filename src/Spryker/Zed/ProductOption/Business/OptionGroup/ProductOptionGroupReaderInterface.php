@@ -18,10 +18,5 @@ interface ProductOptionGroupReaderInterface
      */
     public function getProductOptionGroupById($idProductOptionGroup);
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return bool
-     */
     public function checkProductOptionGroupExistenceByProductOptionValueId(int $idProductOptionValue): bool;
 }

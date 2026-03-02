@@ -119,9 +119,6 @@ class ProductOptionBusinessFactory extends AbstractBusinessFactory
         return new ObsoleteProductOptionOrderSaver($this->getGlossaryFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\PlaceOrder\ProductOptionOrderSaverInterface
-     */
     public function createPlaceOrderProductOptionOrderSaver(): ProductOptionOrderSaverInterface
     {
         return new ProductOptionOrderSaver(
@@ -129,9 +126,6 @@ class ProductOptionBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\Replacer\SalesOrderItemOptionReplacerInterface
-     */
     public function createSalesOrderItemOptionReplacer(): SalesOrderItemOptionReplacerInterface
     {
         return new SalesOrderItemOptionReplacer(
@@ -161,9 +155,6 @@ class ProductOptionBusinessFactory extends AbstractBusinessFactory
         return new ProductOptionTaxRateCalculator($this->getQueryContainer(), $this->getTaxFacade(), $this->getStoreFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\Calculator\CalculatorInterface
-     */
     public function createProductOptionTaxRateWithItemShipmentTaxRateCalculator(): CalculatorInterface
     {
         return new ProductOptionTaxRateWithItemShipmentTaxRateCalculator(
@@ -183,17 +174,11 @@ class ProductOptionBusinessFactory extends AbstractBusinessFactory
         return new ProductOptionOrderHydrate($this->getQueryContainer());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\Expander\ProductOptionExpanderInterface
-     */
     public function createProductOptionExpander(): ProductOptionExpanderInterface
     {
         return new ProductOptionExpander($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\Hydrator\CartReorderItemHydratorInterface
-     */
     public function createCartReorderItemHydrator(): CartReorderItemHydratorInterface
     {
         return new CartReorderItemHydrator();
@@ -309,9 +294,6 @@ class ProductOptionBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\Deleter\SalesOrderItemOptionDeleterInterface
-     */
     public function createSalesOrderItemOptionDeleter(): SalesOrderItemOptionDeleterInterface
     {
         return new SalesOrderItemOptionDeleter($this->getEntityManager());

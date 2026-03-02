@@ -28,33 +28,18 @@ class ProductOptionEditCest
      */
     protected const PAGE_BREADCRUMB = 'Catalog / Product Options / Edit Product Option';
 
-    /**
-     * @param \SprykerTest\Zed\ProductOption\ProductOptionCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbShouldBeVisible(ProductOptionCommunicationTester $i): void
     {
         $i->registerMoneyCollectionFormTypePlugin();
         $this->executeBreadcrumbsVisibilityCheckSteps($i);
     }
 
-    /**
-     * @param \SprykerTest\Zed\ProductOption\ProductOptionCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbShouldBeVisibleWhenMoneyFormDoesNotHaveLocaleOption(ProductOptionCommunicationTester $i): void
     {
         $i->registerMoneyCollectionFormTypePluginWithoutLocale();
         $this->executeBreadcrumbsVisibilityCheckSteps($i);
     }
 
-    /**
-     * @param \SprykerTest\Zed\ProductOption\ProductOptionCommunicationTester $i
-     *
-     * @return void
-     */
     protected function executeBreadcrumbsVisibilityCheckSteps(ProductOptionCommunicationTester $i): void
     {
         $i->listDataTable(ProductOptionListPage::URL_TABLE);

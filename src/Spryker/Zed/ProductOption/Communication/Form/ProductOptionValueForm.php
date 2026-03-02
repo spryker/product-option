@@ -80,11 +80,6 @@ class ProductOptionValueForm extends AbstractType
             ->addFormHash($builder);
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
@@ -209,12 +204,6 @@ class ProductOptionValueForm extends AbstractType
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param string $currentLocale
-     *
-     * @return void
-     */
     protected function expandPricesFieldWithLocale(FormBuilderInterface $builder, string $currentLocale): void
     {
         $builder->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) use ($currentLocale) {

@@ -45,9 +45,6 @@ class ProductOptionQueryContainerTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testQueryAllProductAbstractProductOptionGroupsReturnsCorrectQuery(): void
     {
         $productOptionQueryContainer = new ProductOptionQueryContainer();
@@ -57,9 +54,6 @@ class ProductOptionQueryContainerTest extends Unit
         $this->assertInstanceOf(SpyProductAbstractProductOptionGroupQuery::class, $query);
     }
 
-    /**
-     * @return void
-     */
     public function testQueryAllProductOptionGroupsReturnsCorrectQuery(): void
     {
         $productOptionQueryContainer = new ProductOptionQueryContainer();
@@ -69,9 +63,6 @@ class ProductOptionQueryContainerTest extends Unit
         $this->assertInstanceOf(SpyProductOptionGroupQuery::class, $query);
     }
 
-    /**
-     * @return void
-     */
     public function testQueryAllProductOptionValuesReturnsCorrectQuery(): void
     {
         $productOptionQueryContainer = new ProductOptionQueryContainer();
@@ -81,9 +72,6 @@ class ProductOptionQueryContainerTest extends Unit
         $this->assertInstanceOf(SpyProductOptionValueQuery::class, $query);
     }
 
-    /**
-     * @return void
-     */
     public function testQueryProductsAbstractBySearchTermReturnsCorrectData(): void
     {
         // Arrange

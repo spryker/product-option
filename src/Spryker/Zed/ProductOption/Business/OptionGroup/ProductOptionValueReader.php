@@ -26,10 +26,6 @@ class ProductOptionValueReader implements ProductOptionValueReaderInterface
      */
     protected $productOptionQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Business\OptionGroup\ProductOptionValuePriceReaderInterface $productOptionValuePriceReader
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $productOptionQueryContainer
-     */
     public function __construct(
         ProductOptionValuePriceReaderInterface $productOptionValuePriceReader,
         ProductOptionQueryContainerInterface $productOptionQueryContainer
@@ -59,11 +55,6 @@ class ProductOptionValueReader implements ProductOptionValueReaderInterface
         );
     }
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTransfer|null
-     */
     public function findProductOptionByIdProductOptionValue(int $idProductOptionValue): ?ProductOptionTransfer
     {
         $productOptionValueEntity = $this->findOptionValueById($idProductOptionValue);
@@ -75,11 +66,6 @@ class ProductOptionValueReader implements ProductOptionValueReaderInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionCollectionTransfer
-     */
     public function getProductOptionCollectionByProductOptionCriteria(
         ProductOptionCriteriaTransfer $productOptionCriteriaTransfer
     ): ProductOptionCollectionTransfer {
@@ -94,11 +80,6 @@ class ProductOptionValueReader implements ProductOptionValueReaderInterface
         );
     }
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return bool
-     */
     public function checkProductOptionValueExistence(int $idProductOptionValue): bool
     {
         return $this->productOptionQueryContainer
@@ -106,13 +87,6 @@ class ProductOptionValueReader implements ProductOptionValueReaderInterface
             ->exists();
     }
 
-    /**
-     * @param \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue $productOptionValueEntity
-     * @param string|null $currencyCode
-     * @param string|null $priceMode
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTransfer
-     */
     protected function hydrateProductOptionTransfer(
         SpyProductOptionValue $productOptionValueEntity,
         ?string $currencyCode = null,
@@ -154,11 +128,6 @@ class ProductOptionValueReader implements ProductOptionValueReaderInterface
         return $productOptionCollectionTransfer;
     }
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionValue|null
-     */
     protected function findOptionValueById(int $idProductOptionValue): ?SpyProductOptionValue
     {
         $productOptionValueEntity = $this->productOptionQueryContainer

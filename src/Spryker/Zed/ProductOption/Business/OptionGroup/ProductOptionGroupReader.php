@@ -79,11 +79,6 @@ class ProductOptionGroupReader implements ProductOptionGroupReaderInterface
         return $this->executeProductOptionGroupExpanderPlugins($productOptionGroupTransfer);
     }
 
-    /**
-     * @param int $idProductOptionValue
-     *
-     * @return bool
-     */
     public function checkProductOptionGroupExistenceByProductOptionValueId(int $idProductOptionValue): bool
     {
         return $this->productOptionQueryContainer
@@ -249,11 +244,6 @@ class ProductOptionGroupReader implements ProductOptionGroupReaderInterface
         return $productOptionGroupCollection->getFirst();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer $productOptionGroupTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionGroupTransfer
-     */
     protected function executeProductOptionGroupExpanderPlugins(
         ProductOptionGroupTransfer $productOptionGroupTransfer
     ): ProductOptionGroupTransfer {

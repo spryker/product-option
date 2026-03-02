@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface SalesOrderItemOptionReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function replaceSalesOrderItemOptions(QuoteTransfer $quoteTransfer): void;
 }

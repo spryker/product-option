@@ -39,11 +39,6 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
      */
     protected ProductOptionToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToTaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         ProductOptionQueryContainerInterface $queryContainer,
         ProductOptionToTaxFacadeInterface $taxFacade,
@@ -64,11 +59,6 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
         $this->recalculateForItemTransfers($quoteTransfer->getItems(), $quoteTransfer->getStore());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return \Generated\Shared\Transfer\CalculableObjectTransfer
-     */
     public function recalculateForCalculableObject(CalculableObjectTransfer $calculableObjectTransfer): CalculableObjectTransfer
     {
         $itemTransfers = $this->recalculateForItemTransfers($calculableObjectTransfer->getItems(), $calculableObjectTransfer->getStore());
@@ -134,11 +124,6 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
         return array_unique($idProductOptionValues);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     protected function getDefaultTaxCountryIso2Code(?StoreTransfer $storeTransfer = null): string
     {
         if ($this->defaultTaxCountryIso2Code === null) {
@@ -158,12 +143,6 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
         return $this->defaultTaxCountryIso2Code;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     protected function getShippingCountryIso2CodeByItem(ItemTransfer $itemTransfer, ?StoreTransfer $storeTransfer = null): string
     {
         if ($this->hasItemShippingAddressDefaultTaxCountryIso2Code($itemTransfer)) {
@@ -188,13 +167,6 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
         return $productOptionValueIds;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param array $taxRates
-     * @param string $countryIso2Code
-     *
-     * @return void
-     */
     protected function setProductOptionTaxRate(ItemTransfer $itemTransfer, array $taxRates, string $countryIso2Code): void
     {
         foreach ($itemTransfer->getProductOptions() as $productOptionTransfer) {
@@ -208,13 +180,6 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
         }
     }
 
-    /**
-     * @param array $taxRates
-     * @param int $idOptionValue
-     * @param string $countryIso2Code
-     *
-     * @return float
-     */
     protected function getEffectiveTaxRate(array $taxRates, int $idOptionValue, string $countryIso2Code): float
     {
         $key = $this->getTaxGroupedKey($idOptionValue, $countryIso2Code);
@@ -265,22 +230,11 @@ class ProductOptionTaxRateWithItemShipmentTaxRateCalculator implements Calculato
         return $groupedTaxSetCollection;
     }
 
-    /**
-     * @param int $idOptionValue
-     * @param string $countryIso2Code
-     *
-     * @return string
-     */
     protected function getTaxGroupedKey(int $idOptionValue, string $countryIso2Code): string
     {
         return $countryIso2Code . $idOptionValue;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function hasItemShippingAddressDefaultTaxCountryIso2Code(ItemTransfer $itemTransfer): bool
     {
         $shipmentTransfer = $itemTransfer->getShipment();

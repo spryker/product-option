@@ -68,25 +68,16 @@ class ProductOptionPersistenceFactory extends AbstractPersistenceFactory
         return SpyProductAbstractProductOptionGroupQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemOptionQuery
-     */
     public function createSalesOrderItemOptionQuery(): SpySalesOrderItemOptionQuery
     {
         return SpySalesOrderItemOptionQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Persistence\Propel\Mapper\ProductOptionMapper
-     */
     public function createProductOptionMapper(): ProductOptionMapper
     {
         return new ProductOptionMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Persistence\Expander\ProductOptionGroupQueryExpanderInterface
-     */
     public function createProductOptionGroupQueryExpander(): ProductOptionGroupQueryExpanderInterface
     {
         return new ProductOptionGroupQueryExpander(
@@ -102,9 +93,6 @@ class ProductOptionPersistenceFactory extends AbstractPersistenceFactory
         return $this->getProvidedDependency(ProductOptionDependencyProvider::QUERY_CONTAINER_SALES);
     }
 
-    /**
-     * @return \Orm\Zed\Country\Persistence\SpyCountryQuery
-     */
     public function getCountryQuery(): SpyCountryQuery
     {
         return $this->getProvidedDependency(ProductOptionDependencyProvider::QUERY_COUNTRY);

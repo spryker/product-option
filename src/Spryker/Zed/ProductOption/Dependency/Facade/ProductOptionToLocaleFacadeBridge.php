@@ -24,21 +24,11 @@ class ProductOptionToLocaleFacadeBridge implements ProductOptionToLocaleFacadeIn
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param string $localeName
-     *
-     * @return bool
-     */
     public function hasLocale(string $localeName): bool
     {
         return $this->localeFacade->hasLocale($localeName);
     }
 
-    /**
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getLocale(string $localeName): LocaleTransfer
     {
         return $this->localeFacade->getLocale($localeName);
@@ -52,17 +42,11 @@ class ProductOptionToLocaleFacadeBridge implements ProductOptionToLocaleFacadeIn
         return $this->localeFacade->getLocaleCollection();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getCurrentLocale(): LocaleTransfer
     {
         return $this->localeFacade->getCurrentLocale();
     }
 
-    /**
-     * @return string
-     */
     public function getCurrentLocaleName(): string
     {
         return $this->localeFacade->getCurrentLocaleName();

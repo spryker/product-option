@@ -63,9 +63,6 @@ class ProductOptionValuePriceReaderTest extends Unit
      */
     protected $currencyClientMock;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -82,9 +79,6 @@ class ProductOptionValuePriceReaderTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLocalizeGroupPricesRemovesOptionsWhenCurrentCurrencyIsNotDefined(): void
     {
         // Assign
@@ -128,9 +122,6 @@ class ProductOptionValuePriceReaderTest extends Unit
         $this->assertEquals($expectedPrices, $actualPrices);
     }
 
-    /**
-     * @return void
-     */
     public function testLocalizeGroupPricesRemovesOptionsWhenPriceIsNull(): void
     {
         // Assign
@@ -179,9 +170,6 @@ class ProductOptionValuePriceReaderTest extends Unit
         $this->assertEquals($expectedPrices, $actualPrices);
     }
 
-    /**
-     * @return void
-     */
     public function testLocalizeGroupPricesLocalizesAllProductOptionValuePrices(): void
     {
         // Assign
@@ -263,11 +251,6 @@ class ProductOptionValuePriceReaderTest extends Unit
             ->willReturn(static::CURRENT_PRICE_MODE);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StorageProductOptionGroupTransfer $productOptionGroupTransfer
-     *
-     * @return array
-     */
     protected function filterPrices(StorageProductOptionGroupTransfer $productOptionGroupTransfer): array
     {
         $filtered = array_map(

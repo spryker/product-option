@@ -24,29 +24,16 @@ class ProductOptionToCurrencyFacadeBridge implements ProductOptionToCurrencyFaca
         $this->currencyFacade = $currencyFacade;
     }
 
-    /**
-     * @param int $idCurrency
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getByIdCurrency(int $idCurrency): CurrencyTransfer
     {
         return $this->currencyFacade->getByIdCurrency($idCurrency);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getCurrent(): CurrencyTransfer
     {
         return $this->currencyFacade->getCurrent();
     }
 
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function fromIsoCode(string $isoCode): CurrencyTransfer
     {
         return $this->currencyFacade->fromIsoCode($isoCode);

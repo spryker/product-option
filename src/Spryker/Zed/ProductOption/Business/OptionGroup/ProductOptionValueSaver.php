@@ -37,12 +37,6 @@ class ProductOptionValueSaver implements ProductOptionValueSaverInterface
      */
     protected $translationSaver;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Business\OptionGroup\ProductOptionValuePriceSaverInterface $productOptionPriceSaver
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $productOptionQueryContainer
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToTouchFacadeInterface $touchFacade
-     * @param \Spryker\Zed\ProductOption\Business\OptionGroup\TranslationSaverInterface $translationSaver
-     */
     public function __construct(
         ProductOptionValuePriceSaverInterface $productOptionPriceSaver,
         ProductOptionQueryContainerInterface $productOptionQueryContainer,

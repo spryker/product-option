@@ -18,9 +18,6 @@ class ProductOptionExpander implements ProductOptionExpanderInterface
      */
     protected $productOptionRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionRepositoryInterface $productOptionRepository
-     */
     public function __construct(ProductOptionRepositoryInterface $productOptionRepository)
     {
         $this->productOptionRepository = $productOptionRepository;

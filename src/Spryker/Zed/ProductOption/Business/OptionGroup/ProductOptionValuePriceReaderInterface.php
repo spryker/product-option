@@ -43,11 +43,5 @@ interface ProductOptionValuePriceReaderInterface
      */
     public function getAllPrices(ProductOptionValueStorePricesRequestTransfer $storePricesRequestTransfer);
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionTransfer $productOptionTransfer
-     * @param string|null $priceMode
-     *
-     * @return int|null
-     */
     public function resolveUnitPrice(ProductOptionTransfer $productOptionTransfer, ?string $priceMode): ?int;
 }

@@ -33,9 +33,6 @@ class TranslationSaverTest extends MockProvider
      */
     protected const DEFAULT_LOCALE_CODE = 'en_US';
 
-    /**
-     * @return void
-     */
     public function testAddValueTranslationsShouldTranslateProvidedValues(): void
     {
         $translationSaver = $this->createAddTranslationSaverWithMocks();
@@ -49,9 +46,6 @@ class TranslationSaverTest extends MockProvider
         $translationSaver->addValueTranslations($productOptionGroupTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddGroupNameTranslationsShouldTranslateProvidedValues(): void
     {
         $translationSaver = $this->createAddTranslationSaverWithMocks();
@@ -66,9 +60,6 @@ class TranslationSaverTest extends MockProvider
         $translationSaver->addGroupNameTranslations($productOptionGroupTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteTranslationShouldTriggerGlossaryDeleteRequest(): void
     {
         $glossaryFacadeMock = $this->createGlossaryFacadeMock();
@@ -81,12 +72,6 @@ class TranslationSaverTest extends MockProvider
         $translationSaver->deleteTranslation('translation key');
     }
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToGlossaryFacadeInterface|null $glossaryFacadeMock
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleFacadeInterface|null $localeFacadeMock
-     *
-     * @return \Spryker\Zed\ProductOption\Business\OptionGroup\TranslationSaver
-     */
     protected function createTranslationSaver(
         ?ProductOptionToGlossaryFacadeInterface $glossaryFacadeMock = null,
         ?ProductOptionToLocaleFacadeInterface $localeFacadeMock = null
@@ -105,9 +90,6 @@ class TranslationSaverTest extends MockProvider
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOption\Business\OptionGroup\TranslationSaver
-     */
     protected function createAddTranslationSaverWithMocks(): TranslationSaver
     {
         $glossaryFacadeMock = $this->createGlossaryFacadeMock();

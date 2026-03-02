@@ -48,20 +48,11 @@ class ProductOptionCommunicationTester extends Actor
      */
     protected const DEFAULT_CURRENCY = 'EUR';
 
-    /**
-     * @return void
-     */
     public function addDependencies(): void
     {
         $this->getContainer()->set(static::SERVICE_CURRENCY, static::DEFAULT_CURRENCY);
     }
 
-    /**
-     * @param string $sku
-     * @param int $idProductOptionGroup
-     *
-     * @return void
-     */
     public function createProductOptionValueEntity(string $sku, int $idProductOptionGroup): void
     {
         $productOptionValue = new SpyProductOptionValue();
@@ -72,9 +63,6 @@ class ProductOptionCommunicationTester extends Actor
         $productOptionValue->save();
     }
 
-    /**
-     * @return void
-     */
     public function registerMoneyCollectionFormTypePlugin(): void
     {
         $this->setDependency(ProductOptionDependencyProvider::MONEY_COLLECTION_FORM_TYPE_PLUGIN, function () {
@@ -82,9 +70,6 @@ class ProductOptionCommunicationTester extends Actor
         });
     }
 
-    /**
-     * @return void
-     */
     public function registerMoneyCollectionFormTypePluginWithoutLocale(): void
     {
         $this->setDependency(ProductOptionDependencyProvider::MONEY_COLLECTION_FORM_TYPE_PLUGIN, function () {
@@ -92,9 +77,6 @@ class ProductOptionCommunicationTester extends Actor
         });
     }
 
-    /**
-     * @return void
-     */
     public function ensureSalesOrderItemOptionDatabaseTableIsEmpty(): void
     {
         $this->ensureDatabaseTableIsEmpty(
@@ -102,11 +84,6 @@ class ProductOptionCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @param int $idSalesOrderItem
-     *
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemOption
-     */
     public function findSalesOrderItemOption(int $idSalesOrderItem): SpySalesOrderItemOption
     {
         return $this->getSalesOrderItemOptionQuery()
@@ -114,19 +91,11 @@ class ProductOptionCommunicationTester extends Actor
             ->findOne();
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemOptionQuery
-     */
     public function getSalesOrderItemOptionQuery(): SpySalesOrderItemOptionQuery
     {
         return SpySalesOrderItemOptionQuery::create();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTransfer
-     */
     public function createProductOption(StoreTransfer $storeTransfer): ProductOptionTransfer
     {
         $productOptionGroupTransfer = $this->haveProductOptionGroupWithValues(

@@ -19,9 +19,6 @@ class ProductOptionValuePriceSaver implements ProductOptionValuePriceSaverInterf
      */
     protected $queryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $queryContainer
-     */
     public function __construct(ProductOptionQueryContainerInterface $queryContainer)
     {
         $this->queryContainer = $queryContainer;

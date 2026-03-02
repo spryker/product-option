@@ -35,9 +35,6 @@ class ProductOptionGroupReaderTest extends MockProvider
      */
     protected const VALUE_ID_PRODUCT_OPTION_GROUP = 1;
 
-    /**
-     * @return void
-     */
     public function testGetProductOptionGroupByIdThrowsExceptionWhenOptionDoesNotExist(): void
     {
         // Assign

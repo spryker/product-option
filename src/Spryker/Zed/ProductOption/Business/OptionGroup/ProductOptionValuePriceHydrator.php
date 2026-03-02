@@ -25,9 +25,6 @@ class ProductOptionValuePriceHydrator implements ProductOptionValuePriceHydrator
      */
     protected static $currencyBuffer = [];
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToCurrencyFacadeInterface $currencyFacade
-     */
     public function __construct(ProductOptionToCurrencyFacadeInterface $currencyFacade)
     {
         $this->currencyFacade = $currencyFacade;

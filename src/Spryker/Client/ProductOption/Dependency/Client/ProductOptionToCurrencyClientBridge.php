@@ -24,9 +24,6 @@ class ProductOptionToCurrencyClientBridge implements ProductOptionToCurrencyClie
         $this->currencyClient = $currencyClient;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getCurrent(): CurrencyTransfer
     {
         return $this->currencyClient->getCurrent();

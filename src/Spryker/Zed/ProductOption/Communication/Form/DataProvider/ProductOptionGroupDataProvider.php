@@ -35,11 +35,6 @@ class ProductOptionGroupDataProvider
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToTaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\ProductOption\Dependency\Facade\ProductOptionToLocaleFacadeInterface $localeFacade
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer|null $productOptionGroupTransfer
-     */
     public function __construct(
         ProductOptionToTaxFacadeInterface $taxFacade,
         ProductOptionToLocaleFacadeInterface $localeFacade,

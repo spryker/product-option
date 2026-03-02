@@ -41,9 +41,6 @@ class AbstractProductOptionSaverTest extends MockProvider
      */
     protected const VALUE_SKU_PRODUCT_ABSTRACT = '123';
 
-    /**
-     * @return void
-     */
     public function testAddProductAbstractToProductOptionGroupShouldAddProductToExistingGroup(): void
     {
         $touchFacadeMock = $this->createTouchFacadeMock();
@@ -69,9 +66,6 @@ class AbstractProductOptionSaverTest extends MockProvider
         $this->assertTrue($isUpdated);
     }
 
-    /**
-     * @return void
-     */
     public function testAddProductAbstractToProductOptionShouldThrowExceptionWhenGroupDoesNotExist(): void
     {
         $this->expectException(ProductOptionGroupNotFoundException::class);
@@ -86,9 +80,6 @@ class AbstractProductOptionSaverTest extends MockProvider
         $productOptionGroupSaverMock->addProductAbstractToProductOptionGroup(static::VALUE_SKU_PRODUCT_ABSTRACT, static::VALUE_ID_PRODUCT_OPTION_GROUP);
     }
 
-    /**
-     * @return void
-     */
     public function testAddProductAbstractToProductOptionShouldThrowExceptionWhenAbstractProductDoesNotExists(): void
     {
         $this->expectException(AbstractProductNotFoundException::class);

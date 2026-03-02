@@ -24,9 +24,6 @@ class ProductOptionToSalesQueryContainerBridge implements ProductOptionToSalesQu
         $this->salesQueryContainer = $salesQueryContainer;
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
-     */
     public function querySalesOrderItem(): SpySalesOrderItemQuery
     {
         return $this->salesQueryContainer->querySalesOrderItem();
