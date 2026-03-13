@@ -109,18 +109,23 @@ function TableHandler(sourceTable, destinationTable, checkBoxNamePrefix, labelCa
         }
         destinationTableProductSelector.addProductToSelection(idProduct);
 
-        destinationTable
-            .dataTable()
-            .fnAddData([
-                idProduct,
-                decodeURIComponent((sku + '').replace(/\+/g, '%20')),
-                decodeURIComponent((name + '').replace(/\+/g, '%20')),
-                '<div><a data-id="' +
-                    idProduct +
-                    '" data-action="' +
-                    tableHandler.getAction() +
-                    '" href="#" class="btn btn-xs remove-item">Remove</a></div>',
-            ]);
+        const table = destinationTable.DataTable();
+        const dataToAdd = [
+            idProduct,
+            decodeURIComponent((sku + '').replace(/\+/g, '%20')),
+            decodeURIComponent((name + '').replace(/\+/g, '%20')),
+            '<div><a data-id="' +
+                idProduct +
+                '" data-action="' +
+                tableHandler.getAction() +
+                '" href="#" class="btn btn-xs remove-item">Remove</a></div>',
+        ];
+
+        if (typeof table.fnAddData === 'function') {
+            table.fnAddData(dataToAdd);
+        } else {
+            table.row.add(dataToAdd).draw(false);
+        }
 
         $('.remove-item').off('click');
         $('.remove-item').on('click', removeActionHandler);

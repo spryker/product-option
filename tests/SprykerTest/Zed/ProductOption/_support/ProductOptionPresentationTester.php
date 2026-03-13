@@ -93,7 +93,7 @@ class ProductOptionPresentationTester extends Actor
     {
         $this->selectProductTab();
 
-        $this->waitForElementNotVisible('.dataTables_processing');
+        $this->waitForElementNotVisible('.dt-processing');
 
         $productIds = [
             $this->grabTextFrom('//*[@id="product-table"]/tbody/tr[1]/td[1]'),
@@ -104,7 +104,7 @@ class ProductOptionPresentationTester extends Actor
             $this->click('//*[@id="all_products_checkbox_' . $id . '"]');
         }
 
-        $this->waitForElementNotVisible('.dataTables_processing');
+        $this->waitForElementNotVisible('.dt-processing');
     }
 
     public function unassignProduct(): void
@@ -118,7 +118,8 @@ class ProductOptionPresentationTester extends Actor
 
     public function selectProductTab(): void
     {
-        $this->waitAndClick('//*[@data-qa="tab-products"]');
+        $this->executeJS("document.querySelector('.app-topbar').style.display = 'none';");
+        $this->click('//*[@data-qa="tab-products"]');
     }
 
     public function submitProductGroupForm(): void
