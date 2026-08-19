@@ -38,7 +38,6 @@
         "spryker/calculation": "*",
         "spryker/checkout": "*",
         "spryker/code-sniffer": "*",
-        "spryker/config": "*",
         "spryker/container": "*",
         "spryker/customer": "*",
         "spryker/event-dispatcher": "*",
