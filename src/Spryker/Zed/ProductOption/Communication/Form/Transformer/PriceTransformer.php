@@ -50,7 +50,7 @@ class PriceTransformer implements DataTransformerInterface
      *
      * @return mixed The value in the transformed representation
      */
-    public function transform($value)
+    public function transform($value): mixed
     {
         if (!$value && $value !== 0) {
             return $value;
@@ -87,7 +87,7 @@ class PriceTransformer implements DataTransformerInterface
      *
      * @return mixed The value in the original representation
      */
-    public function reverseTransform($value)
+    public function reverseTransform($value): mixed
     {
         if (!$value && $value !== 0) {
             return $value;

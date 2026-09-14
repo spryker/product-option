@@ -29,10 +29,7 @@ class UniqueOptionValueSku extends SymfonyConstraint
         return $this->productOptionQueryContainer;
     }
 
-    /**
-     * @return string
-     */
-    public function getTargets()
+    public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }
