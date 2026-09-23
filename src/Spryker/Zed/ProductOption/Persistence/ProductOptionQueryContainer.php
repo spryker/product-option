@@ -546,6 +546,12 @@ class ProductOptionQueryContainer extends AbstractQueryContainer implements Prod
             $productOptionValueQuery,
         );
 
+        $productOptionValueSkus = $productOptionCriteriaTransfer->getProductOptionValueSkus();
+
+        if ($productOptionValueSkus !== []) {
+            return $productOptionValueQuery->filterBySku_In($productOptionValueSkus);
+        }
+
         return $productOptionValueQuery->filterByIdProductOptionValue_In(
             $productOptionCriteriaTransfer->getProductOptionIds(),
         );

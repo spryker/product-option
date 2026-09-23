@@ -827,6 +827,84 @@ class ProductOptionFacadeTest extends Unit
         }
     }
 
+    public function testGetProductOptionCollectionByProductOptionCriteriaWithSkusReturnsCollection(): void
+    {
+        // Arrange
+        $this->mockStoreFacadeDefaultStore();
+        $productOptionFacade = $this->getProductOptionFacade();
+
+        $productOptionValueTransfer = $this->createProductOptionValueTransfer('sku_wanted');
+        $productOptionValueTransfer->setFkProductOptionGroup($this->tester->haveProductOptionGroup()->getIdProductOptionGroup());
+        $productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
+
+        $productOptionValueTransfer = $this->createProductOptionValueTransfer('sku_not_wanted');
+        $productOptionValueTransfer->setFkProductOptionGroup($this->tester->haveProductOptionGroup()->getIdProductOptionGroup());
+        $productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
+
+        $productOptionCriteriaTransfer = (new ProductOptionCriteriaTransfer())
+            ->setProductOptionValueSkus(['sku_wanted']);
+
+        // Act
+        $actualResult = $productOptionFacade->getProductOptionCollectionByProductOptionCriteria($productOptionCriteriaTransfer);
+
+        // Assert
+        $this->assertSame(1, $actualResult->getProductOptions()->count());
+        $this->assertSame('sku_wanted', $actualResult->getProductOptions()->offsetGet(0)->getSku());
+    }
+
+    /**
+     * The SKUs take precedence when both identifiers are set, so a caller filtering by SKU is not
+     * silently intersected with an unrelated id list.
+     */
+    public function testGetProductOptionCollectionByProductOptionCriteriaPrefersSkusOverIds(): void
+    {
+        // Arrange
+        $this->mockStoreFacadeDefaultStore();
+        $productOptionFacade = $this->getProductOptionFacade();
+
+        $productOptionValueTransfer = $this->createProductOptionValueTransfer('sku_by_sku');
+        $productOptionValueTransfer->setFkProductOptionGroup($this->tester->haveProductOptionGroup()->getIdProductOptionGroup());
+        $productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
+
+        $productOptionValueTransfer = $this->createProductOptionValueTransfer('sku_by_id');
+        $productOptionValueTransfer->setFkProductOptionGroup($this->tester->haveProductOptionGroup()->getIdProductOptionGroup());
+        $idProductOptionValue = $productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
+
+        $productOptionCriteriaTransfer = (new ProductOptionCriteriaTransfer())
+            ->setProductOptionIds([$idProductOptionValue])
+            ->setProductOptionValueSkus(['sku_by_sku']);
+
+        // Act
+        $actualResult = $productOptionFacade->getProductOptionCollectionByProductOptionCriteria($productOptionCriteriaTransfer);
+
+        // Assert
+        $this->assertSame(1, $actualResult->getProductOptions()->count());
+        $this->assertSame('sku_by_sku', $actualResult->getProductOptions()->offsetGet(0)->getSku());
+    }
+
+    /**
+     * Criteria naming neither identifier must keep matching nothing. Dropping the id filter when the
+     * list is empty would turn this into "every option in the catalogue".
+     */
+    public function testGetProductOptionCollectionByProductOptionCriteriaWithoutIdentifiersReturnsEmptyCollection(): void
+    {
+        // Arrange
+        $this->mockStoreFacadeDefaultStore();
+        $productOptionFacade = $this->getProductOptionFacade();
+
+        $productOptionValueTransfer = $this->createProductOptionValueTransfer('sku_present');
+        $productOptionValueTransfer->setFkProductOptionGroup($this->tester->haveProductOptionGroup()->getIdProductOptionGroup());
+        $productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
+
+        // Act
+        $actualResult = $productOptionFacade->getProductOptionCollectionByProductOptionCriteria(
+            new ProductOptionCriteriaTransfer(),
+        );
+
+        // Assert
+        $this->assertSame(0, $actualResult->getProductOptions()->count());
+    }
+
     public function testGetProductOptionCollectionByProductOptionCriteriaWithTwoIdsReturnsCollection(): void
     {
         // Arrange

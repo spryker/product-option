@@ -31,6 +31,7 @@
 
     <transfer name="ProductOptionCriteria">
         <property name="productOptionIds" type="array" singular="productOptionIds"/>
+        <property name="productOptionValueSkus" type="string[]" singular="productOptionValueSku"/>
         <property name="productOptionGroupIsActive" type="bool"/>
         <property name="productConcreteSku" type="string"/>
         <property name="priceMode" type="string"/>
