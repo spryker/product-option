@@ -40,13 +40,20 @@ class ProductOptionDataHelper extends Module
         return $productOptionGroupTransfer;
     }
 
+    /**
+     * The builder defaults `fkTaxSet` to a hard-coded 1, which only resolves on a seeded database;
+     * pass a real tax-set id through the override on a lane whose `spy_tax_set` starts empty.
+     *
+     * @param array<string, mixed> $productOptionGroupOverride
+     */
     public function haveProductOptionValueForAbstractProduct(
         string $productAbstractSku,
-        StoreTransfer $storeTransfer
+        StoreTransfer $storeTransfer,
+        array $productOptionGroupOverride = []
     ): ProductOptionValueTransfer {
         $currencyTransfer = $this->getDefaultStoreCurrency($storeTransfer);
 
-        $productOptionGroupTransfer = (new ProductOptionGroupBuilder())
+        $productOptionGroupTransfer = (new ProductOptionGroupBuilder($productOptionGroupOverride))
             ->withProductOptionValue([
                 ProductOptionValueTransfer::PRICES => new ArrayObject([
                     [
