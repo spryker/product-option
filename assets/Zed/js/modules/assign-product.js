@@ -309,7 +309,7 @@ $(document).ready(function () {
 
         currentTableId = dataElementId;
 
-        if (dataElementId == 'products-to-assign' || dataElementId === 'assigned') {
+        if (dataElementId === 'products-to-assign' || dataElementId === 'assigned') {
             $('#select-all-btn').show();
         } else {
             $('#select-all-btn').hide();
@@ -322,7 +322,7 @@ $(document).ready(function () {
     });
 
     $('#select-all').on('click', function () {
-        if (currentTableId == 'products-to-assign' || !productOptionTable) {
+        if (currentTableId === 'products-to-assign' || !productOptionTable) {
             allProductsTable.selectAll();
         } else {
             productOptionTable.selectAll();
@@ -331,7 +331,7 @@ $(document).ready(function () {
     });
 
     $('#deselect-all').on('click', function () {
-        if (currentTableId == 'products-to-assign' || !productOptionTable) {
+        if (currentTableId === 'products-to-assign' || !productOptionTable) {
             allProductsTable.deSelectAll();
         } else {
             productOptionTable.deSelectAll();

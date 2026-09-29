@@ -36,7 +36,6 @@ OptionValueFormHandler.prototype.isOptionValueFormAlreadyAdded = function () {
         .find("input[id$='value']")
         .each(function (index, element) {
             isOptionValueFormAlreadyAdded = true;
-            return;
         });
 
     return isOptionValueFormAlreadyAdded;

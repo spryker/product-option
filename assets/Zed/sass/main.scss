@@ -5,13 +5,16 @@
 
 .form-product-option-row,
 .form-product-option-translation-row {
+    // Declared before the nested rule on purpose: Dart Sass 1.77 and later emit a declaration
+    // that follows a nested rule *after* that rule, which silently reorders the output. Keeping
+    // the base declarations first makes the emitted CSS the same under either compiler.
+    margin: 0 0 30px;
+
     .form-group {
         vertical-align: top;
         margin-top: 5px;
         margin-bottom: 5px;
     }
-
-    margin: 0px 0px 30px 0px;
 }
 
 .select-all-btn {

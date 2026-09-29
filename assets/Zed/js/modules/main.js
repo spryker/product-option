@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     $('.ibox-content').each(function (index, content) {
         var hasErrors = $(content).find('.has-error, .alert-danger');
-        if (hasErrors.length == 0) {
+        if (hasErrors.length === 0) {
             return;
         }
 
