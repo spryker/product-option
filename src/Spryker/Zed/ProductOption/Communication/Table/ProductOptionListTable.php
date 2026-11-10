@@ -312,7 +312,7 @@ class ProductOptionListTable extends AbstractTable
     {
         $skus = '';
         foreach ($productOptionGroupEntity->getSpyProductOptionValues() as $productOptionValueEntity) {
-            $skus .= $this->wrapInlineCellItem($productOptionValueEntity->getSku());
+            $skus .= $this->wrapInlineCellItem(htmlspecialchars((string)$productOptionValueEntity->getSku(), ENT_QUOTES, 'UTF-8'));
         }
 
         return $skus;
@@ -327,7 +327,7 @@ class ProductOptionListTable extends AbstractTable
     {
         $names = '';
         foreach ($productOptionGroupEntity->getSpyProductOptionValues() as $productOptionValueEntity) {
-            $names .= $this->wrapInlineCellItem($productOptionValueEntity->getValue());
+            $names .= $this->wrapInlineCellItem(htmlspecialchars((string)$productOptionValueEntity->getValue(), ENT_QUOTES, 'UTF-8'));
         }
 
         return $names;
